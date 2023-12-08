@@ -1,7 +1,7 @@
 import { graphql } from '.';
 
 export const getEvents = async () => {
-  const data = await graphql(`
+  const res = await graphql(`
     query {
       eventCollection {
         items {
@@ -17,5 +17,6 @@ export const getEvents = async () => {
       }
     }
   `);
+  const { data } = res;
   return data?.eventCollection?.items;
 };

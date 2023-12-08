@@ -5,7 +5,7 @@ import Program from './program/Program';
 import Door from './door/Door';
 import About from './about/About';
 
-const PageTemplate = ({ events }) => {
+const PageTemplate = ({ events, goreiInfo }) => {
   return (
     <div>
       <Flex h="100vh" dir="row" gap={4} p={4} pb={8}>
@@ -16,7 +16,7 @@ const PageTemplate = ({ events }) => {
           <Door />
         </Block>
         <Block color="red" title="Goldener Reiter" textAlign="right">
-          <About />
+          <About goreiInfo={goreiInfo} />
         </Block>
       </Flex>
     </div>

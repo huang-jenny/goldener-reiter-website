@@ -5,7 +5,7 @@ export const graphql = async (query) => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`
     },
-    body: JSON.stringify({ query })
+    body: JSON.stringify({ query: query })
   });
 
   if (r.ok) {
