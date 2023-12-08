@@ -26,8 +26,8 @@ const PageTemplate = ({ events, goreiInfo }) => {
 const Block = ({ children, color, title, width, textAlign }) => {
   return (
     <Box flex={width ? '' : 1} width={width}>
-      <Box bgColor={color} h="100%" overflowY="auto" textAlign={textAlign} p={6}>
-        <Heading fontSize="4xl" mb={8}>
+      <Box bgColor={color} h="100%" overflowY="auto" textAlign={textAlign} py={6} px={10}>
+        <Heading variant="title" mb={8}>
           {title}
         </Heading>
         {children}

@@ -13,6 +13,28 @@ export function Providers({ children }) {
       Heading: {
         baseStyle: {
           fontFamily: pressStart2P.style.fontFamily
+        },
+        variants: {
+          title: {
+            fontFamily: pressStart2P.style.fontFamily,
+            fontSize: '42px'
+          },
+          subtitle: {
+            fontFamily: quantico.style.fontFamily,
+            fontSize: '28px'
+          }
+        }
+      },
+      Box: {
+        baseStyle: {
+          fontFamily: quantico.style.fontFamily
+        }
+      },
+      Divider: {
+        baseStyle: {
+          borderColor: 'black',
+          borderWidth: '4px',
+          opacity: '1'
         }
       }
     },
@@ -27,7 +49,7 @@ export function Providers({ children }) {
           bg: '#144CDB',
           color: 'black',
           fontFamily: quantico.style.fontFamily,
-          fontSize: '14pt'
+          fontSize: '16pt'
         },
         a: {
           //   color: 'teal.500',

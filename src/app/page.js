@@ -9,6 +9,8 @@ export default async function Home() {
   const events = await getEvents();
   const goreiInfo = await getGoreiInfo();
 
+
+
   console.log(events);
 
   return (
