@@ -3,7 +3,7 @@ import { graphql } from '.';
 export const getEvents = async () => {
   const res = await graphql(`
     query {
-      eventCollection {
+      eventCollection(order: date_ASC) {
         items {
           date
           eventname

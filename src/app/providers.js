@@ -9,6 +9,10 @@ const quantico = Quantico({ subsets: ['latin'], display: 'swap', weight: '700' }
 
 export function Providers({ children }) {
   const theme = extendTheme({
+    fonts: {
+      pressStart2P: pressStart2P.style.fontFamily,
+      quantico: quantico.style.fontFamily
+    },
     components: {
       Heading: {
         baseStyle: {
@@ -22,40 +26,40 @@ export function Providers({ children }) {
           subtitle: {
             fontFamily: quantico.style.fontFamily,
             fontSize: '28px'
+          },
+          date: {
+            fontFamily: pressStart2P.style.fontFamily,
+            fontSize: '18px'
           }
-        }
-      },
-      Box: {
-        baseStyle: {
-          fontFamily: quantico.style.fontFamily
         }
       },
       Divider: {
         baseStyle: {
-          borderColor: 'black',
           borderWidth: '4px',
           opacity: '1'
+        }
+      },
+      Link: {
+        baseStyle: {
+          _hover: {
+            textDecoration: 'none',
+            color: 'yellow'
+          }
         }
       }
     },
     colors: {
-      red: '#FF2F2F',
-      blue: '#144CDB',
-      pink: '#D83CFF'
+      red: '#E00404',
+      blue: '#110F91',
+      pink: '#F14DFF'
     },
     styles: {
       global: {
         body: {
-          bg: '#144CDB',
-          color: 'black',
+          bg: '#E00404',
+          //   color: 'black',
           fontFamily: quantico.style.fontFamily,
-          fontSize: '16pt'
-        },
-        a: {
-          //   color: 'teal.500',
-          _hover: {
-            textDecoration: 'underline'
-          }
+          fontSize: '24px'
         }
       }
     }

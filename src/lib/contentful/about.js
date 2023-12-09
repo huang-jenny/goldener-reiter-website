@@ -5,7 +5,10 @@ export const getGoreiInfo = async () => {
     query {
       goreiInformationCollection(limit: 1) {
         items {
-          informationen {
+          openingHours {
+            json
+          }
+          address {
             json
           }
           instagramLink

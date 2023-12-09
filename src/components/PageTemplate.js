@@ -9,13 +9,13 @@ const PageTemplate = ({ events, goreiInfo }) => {
   return (
     <div>
       <Flex h="100vh" dir="row" gap={4} p={4} pb={8}>
-        <Block color="pink" title="Program" textAlign="left">
+        <Block bgcolor="pink" color="blue" title="Program" textAlign="left">
           <Program events={events} />
         </Block>
-        <Block color="green" width="450px">
+        <Block bgcolor="green" width="450px">
           <Door />
         </Block>
-        <Block color="red" title="Goldener Reiter" textAlign="right">
+        <Block bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right">
           <About goreiInfo={goreiInfo} />
         </Block>
       </Flex>
@@ -23,10 +23,17 @@ const PageTemplate = ({ events, goreiInfo }) => {
   );
 };
 
-const Block = ({ children, color, title, width, textAlign }) => {
+const Block = ({ children, bgcolor, color, title, width, textAlign }) => {
   return (
     <Box flex={width ? '' : 1} width={width}>
-      <Box bgColor={color} h="100%" overflowY="auto" textAlign={textAlign} py={6} px={10}>
+      <Box
+        bgColor={bgcolor}
+        h="100%"
+        overflowY="auto"
+        textAlign={textAlign}
+        py={6}
+        px={10}
+        color={color}>
         <Heading variant="title" mb={8}>
           {title}
         </Heading>
