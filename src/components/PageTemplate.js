@@ -17,40 +17,44 @@ import About from './about/About';
 const PageTemplate = ({ events, goreiInfo }) => {
   return (
     <>
-      {useBreakpointValue({
-        base: (
-          <VStack>
-            <Block bgcolor="green" width="100%" hasPadding={false}>
-              <Door />
-            </Block>
-            <Block bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
-              <Program events={events} />
-            </Block>
+      {useBreakpointValue(
+        {
+          base: (
+            <VStack>
+              <Block bgcolor="green" width="100%" hasPadding={false}>
+                <Door />
+              </Block>
+              <Block bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
+                <Program events={events} />
+              </Block>
 
-            <Block
-              bgcolor="blue"
-              color="pink"
-              title="Goldener Reiter"
-              textAlign="right"
-              width="100%">
-              <About goreiInfo={goreiInfo} />
-            </Block>
-          </VStack>
-        ),
-        md: (
-          <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
-            <Block bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
-              <Program events={events} />
-            </Block>
-            <Block bgcolor="green" width="420px" flex="none" hasPadding={false}>
-              <Door />
-            </Block>
-            <Block bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
-              <About goreiInfo={goreiInfo} />
-            </Block>
-          </Flex>
-        )
-      })}
+              <Block
+                bgcolor="blue"
+                color="pink"
+                title="Goldener Reiter"
+                textAlign="right"
+                width="100%">
+                <About goreiInfo={goreiInfo} />
+              </Block>
+            </VStack>
+          ),
+
+          md: (
+            <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
+              <Block bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
+                <Program events={events} />
+              </Block>
+              <Block bgcolor="green" width="420px" flex="none" hasPadding={false}>
+                <Door />
+              </Block>
+              <Block bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
+                <About goreiInfo={goreiInfo} />
+              </Block>
+            </Flex>
+          )
+        },
+        { ssr: false }
+      )}
 
       {/* FOOTER */}
       <Flex
