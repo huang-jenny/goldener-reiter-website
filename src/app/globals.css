@@ -82,9 +82,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -100,7 +97,7 @@ a {
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #144cdb #ffffff;
+  scrollbar-color: #e00404 #ffffff;
 }
 
 /* Chrome, Edge, and Safari */

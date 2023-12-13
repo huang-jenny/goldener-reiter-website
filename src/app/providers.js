@@ -21,7 +21,7 @@ export function Providers({ children }) {
         variants: {
           title: {
             fontFamily: pressStart2P.style.fontFamily,
-            fontSize: '42px'
+            fontSize: ['1.3em', '1.4em', '1.5em', '1.6em', '1.7em'] //['30px', '34px', '38px', '42px']
           },
           subtitle: {
             fontFamily: quantico.style.fontFamily,
@@ -43,7 +43,8 @@ export function Providers({ children }) {
         baseStyle: {
           _hover: {
             textDecoration: 'none',
-            color: 'yellow'
+            color: 'yellow',
+            fill: 'yellow'
           }
         }
       }
@@ -59,7 +60,7 @@ export function Providers({ children }) {
           bg: '#E00404',
           //   color: 'black',
           fontFamily: quantico.style.fontFamily,
-          fontSize: '24px'
+          fontSize: ['18px', '20px', '22px', '24px']
         }
       }
     }
