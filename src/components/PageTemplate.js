@@ -21,7 +21,7 @@ const PageTemplate = ({ events, goreiInfo }) => {
         {
           base: (
             <VStack>
-              <Block bgcolor="green" width="100%" hasPadding={false}>
+              <Block bgcolor="yellow" width="100%" hasPadding={false}>
                 <Door />
               </Block>
               <Block bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
@@ -44,7 +44,7 @@ const PageTemplate = ({ events, goreiInfo }) => {
               <Block bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
                 <Program events={events} />
               </Block>
-              <Block bgcolor="green" width="420px" flex="none" hasPadding={false}>
+              <Block bgcolor="yellow" flex="none" hasPadding={false} width="500px">
                 <Door />
               </Block>
               <Block bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
@@ -115,7 +115,7 @@ const Block = ({ children, bgcolor, color, title, width, textAlign, flex, hasPad
         overflowY="auto"
         textAlign={textAlign}
         wordBreak="break-word"
-        py={hasPadding ? 6 : 0}
+        py={hasPadding ? '4%' : 0}
         px={hasPadding ? ['4%', '5%', '6%', '7%', '8%'] : 0} //{[2, 3, 5, 7, 10]}
         color={color}>
         {title && (
