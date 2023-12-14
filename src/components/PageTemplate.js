@@ -6,7 +6,7 @@ import {
   Heading,
   SimpleGrid,
   Spacer,
-  Link, 
+  // Link, 
   useBreakpointValue,
   VStack
 } from '@chakra-ui/react';
