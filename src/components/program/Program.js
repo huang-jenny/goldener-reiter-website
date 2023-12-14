@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 
 const Program = ({ events }) => {
   return (
-    <VStack w="100%" align="left" spacing={6}>
+    <VStack w="100%" align="left" spacing={[3,5,6]}>
       <Divider borderColor="blue" />
       {events?.map((event) => (
         <Box key={v4()}>
