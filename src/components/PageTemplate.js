@@ -6,13 +6,15 @@ import {
   Heading,
   SimpleGrid,
   Spacer,
-  Link,
+  Link, 
   useBreakpointValue,
   VStack
 } from '@chakra-ui/react';
 import Program from './program/Program';
 import Door from './door/Door';
 import About from './about/About';
+import { Link } from '@chakra-ui/next-js'
+// import Link from 'next/link';
 
 const PageTemplate = ({ events, goreiInfo }) => {
   return (
@@ -20,7 +22,7 @@ const PageTemplate = ({ events, goreiInfo }) => {
       {useBreakpointValue(
         {
           base: (
-            <VStack>
+            <VStack pb="38px">
               <Block bgcolor="yellow" width="100%" hasPadding={false}>
                 <Door />
               </Block>
@@ -80,7 +82,7 @@ const PageTemplate = ({ events, goreiInfo }) => {
         </Box>
 
         <Box fontSize="13px" pl={12}>
-          <Link>IMPRESSUM</Link>
+          <Link href="/impressum">IMPRESSUM</Link>
         </Box>
       </Flex>
       {/* <Flex
