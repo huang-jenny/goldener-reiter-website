@@ -52,8 +52,8 @@ const PageTemplate = ({ events, goreiInfo }) => {
               </Block>
             </Flex>
           )
-        },
-        { ssr: false }
+        }
+        // { ssr: false }
       )}
 
       {/* FOOTER */}
