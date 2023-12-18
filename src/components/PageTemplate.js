@@ -6,14 +6,15 @@ import {
   Heading,
   SimpleGrid,
   Spacer,
-  // Link, 
+  // Link,
   useBreakpointValue,
   VStack
 } from '@chakra-ui/react';
 import Program from './program/Program';
 import Door from './door/Door';
 import About from './about/About';
-import { Link } from '@chakra-ui/next-js'
+import { Link } from '@chakra-ui/next-js';
+import TextBlock from './reusable/TextBlock';
 // import Link from 'next/link';
 
 const PageTemplate = ({ events, goreiInfo }) => {
@@ -23,35 +24,40 @@ const PageTemplate = ({ events, goreiInfo }) => {
         {
           base: (
             <VStack pb="38px">
-              <Block bgcolor="yellow" width="100%" hasPadding={false}>
+              <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
                 <Door />
-              </Block>
-              <Block bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
+              </TextBlock>
+              <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
                 <Program events={events} />
-              </Block>
+              </TextBlock>
 
-              <Block
+              <TextBlock
                 bgcolor="blue"
                 color="pink"
                 title="Goldener Reiter"
                 textAlign="right"
                 width="100%">
                 <About goreiInfo={goreiInfo} />
-              </Block>
+              </TextBlock>
             </VStack>
           ),
 
           md: (
             <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
-              <Block bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
+              <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
                 <Program events={events} />
-              </Block>
-              <Block bgcolor="yellow" flex="none" hasPadding={false} width="500px">
+              </TextBlock>
+              <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
                 <Door />
-              </Block>
-              <Block bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
+              </TextBlock>
+              <TextBlock
+                bgcolor="blue"
+                color="pink"
+                title="Goldener Reiter"
+                textAlign="right"
+                flex="1">
                 <About goreiInfo={goreiInfo} />
-              </Block>
+              </TextBlock>
             </Flex>
           )
         }
@@ -103,31 +109,6 @@ const PageTemplate = ({ events, goreiInfo }) => {
 
       </Flex> */}
     </>
-  );
-};
-
-const Block = ({ children, bgcolor, color, title, width, textAlign, flex, hasPadding = true }) => {
-  return (
-    // <Box flex={width ? 'none' : 'auto'} width={width}>
-    <Box flex={flex} width={width}>
-      <Box
-        bgColor={bgcolor}
-        id="test"
-        h="100%"
-        overflowY="auto"
-        textAlign={textAlign}
-        wordBreak="break-word"
-        py={hasPadding ? '4%' : 0}
-        px={hasPadding ? ['4%', '5%', '6%', '7%', '8%'] : 0} //{[2, 3, 5, 7, 10]}
-        color={color}>
-        {title && (
-          <Heading variant="title" mb={8}>
-            {title}
-          </Heading>
-        )}
-        {children}
-      </Box>
-    </Box>
   );
 };
 
