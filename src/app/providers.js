@@ -25,7 +25,7 @@ export function Providers({ children }) {
           },
           subtitle: {
             fontFamily: quantico.style.fontFamily,
-            fontSize: '28px'
+            fontSize: '1.15em'
           },
           date: {
             fontFamily: pressStart2P.style.fontFamily,
