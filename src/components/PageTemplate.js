@@ -15,59 +15,59 @@ import Door from './door/Door';
 import About from './about/About';
 import { Link } from '@chakra-ui/next-js';
 import TextBlock from './reusable/TextBlock';
+import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 
 const PageTemplate = ({ events, goreiInfo }) => {
+  const [pageContent, setPageContent] = useState(null);
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    setPageContent(
+      isMobile ? (
+        <VStack pb="50px">
+          <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
+            <Door />
+          </TextBlock>
+          <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
+            <Program events={events} />
+          </TextBlock>
+
+          <TextBlock
+            bgcolor="blue"
+            color="pink"
+            title="Goldener Reiter"
+            textAlign="right"
+            width="100%">
+            <About goreiInfo={goreiInfo} />
+          </TextBlock>
+        </VStack>
+      ) : (
+        <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
+          <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
+            <Program events={events} />
+          </TextBlock>
+          <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
+            <Door /> {/* MaxWidth setzen damit auch bei quadratischeren bildschirmen gut aussieht*/}
+          </TextBlock>
+          <TextBlock bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
+            <About goreiInfo={goreiInfo} />
+          </TextBlock>
+        </Flex>
+      )
+
+      // { ssr: false }
+    );
+  }, [isMobile]);
+
   return (
     <>
-      {useBreakpointValue(
-        {
-          base: (
-            <VStack pb="38px">
-              <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
-                <Door />
-              </TextBlock>
-              <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
-                <Program events={events} />
-              </TextBlock>
-
-              <TextBlock
-                bgcolor="blue"
-                color="pink"
-                title="Goldener Reiter"
-                textAlign="right"
-                width="100%">
-                <About goreiInfo={goreiInfo} />
-              </TextBlock>
-            </VStack>
-          ),
-
-          md: (
-            <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
-              <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
-                <Program events={events} />
-              </TextBlock>
-              <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
-                <Door />
-              </TextBlock>
-              <TextBlock
-                bgcolor="blue"
-                color="pink"
-                title="Goldener Reiter"
-                textAlign="right"
-                flex="1">
-                <About goreiInfo={goreiInfo} />
-              </TextBlock>
-            </Flex>
-          )
-        }
-        // { ssr: false }
-      )}
-
+      {/* HEADER */}
+      {pageContent}
       {/* FOOTER */}
       <Flex
         px={4}
-        h="38px"
+        h={['50px', '50px', '38px']}
         position="absolute"
         bottom={0}
         w="100%"

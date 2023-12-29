@@ -19,7 +19,7 @@ const TextBlock = ({
         overflowY="auto"
         textAlign={textAlign}
         wordBreak="break-word"
-        py={hasPadding ? '4%' : 0}
+        py={hasPadding ? '6%' : 0}
         px={hasPadding ? ['4%', '5%', '6%', '7%', '8%'] : 0} //{[2, 3, 5, 7, 10]}
         color={color}>
         {title && (

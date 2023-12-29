@@ -29,7 +29,7 @@ export function Providers({ children }) {
           },
           date: {
             fontFamily: pressStart2P.style.fontFamily,
-            fontSize: '0.9em'
+            fontSize: '0.85em'
           }
         }
       },
