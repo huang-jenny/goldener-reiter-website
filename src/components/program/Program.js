@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 
 const Program = ({ events }) => {
   return (
-    <VStack w="100%" align="left" spacing={[3,5,6]}>
+    <VStack w="100%" align="left" spacing={[3, 5, 6]}>
       <Divider borderColor="blue" />
       {events?.map((event) => (
         <Box key={v4()}>
@@ -13,14 +13,15 @@ const Program = ({ events }) => {
           </Heading>
           <Box textTransform="uppercase">{event.eventname}</Box>
           {event.lineupCollection?.items?.map((lineup) => (
-            <Link
-              // textDecoration={lineup.link ? 'underline' : 'none'}
-              key={v4()}
-              href={lineup.link}
-              isExternal
-              pointerEvents={lineup.link ? '' : 'none'}>
-              <Box>{lineup.artistName} </Box>
-            </Link>
+            <Box key={v4()}>
+              <Link
+                // textDecoration={lineup.link ? 'underline' : 'none'}
+                href={lineup.link}
+                isExternal
+                pointerEvents={lineup.link ? '' : 'none'}>
+                {lineup.artistName}{' '}
+              </Link>
+            </Box>
           ))}
         </Box>
       ))}

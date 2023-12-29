@@ -11,7 +11,7 @@ const formatDate = (date) => {
   };
 
   const weekdayString = new Date(date).toLocaleDateString('en-US', dateOptionsWeekday);
-  const dateString = new Date(date).toLocaleDateString('en-DE', dateOptions);
+  const dateString = new Date(date).toLocaleDateString('en-US', dateOptions);
 
   return weekdayString + ' ' + dateString;
 };
