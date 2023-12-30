@@ -18,7 +18,7 @@ import TextBlock from './reusable/TextBlock';
 import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 
-const PageTemplate = ({ events, goreiInfo }) => {
+const PageTemplate = ({ events, goreiInfo, lottieJsons }) => {
   const [pageContent, setPageContent] = useState(null);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
@@ -27,7 +27,7 @@ const PageTemplate = ({ events, goreiInfo }) => {
       isMobile ? (
         <VStack pb="50px">
           <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
-            <Door />
+            <Door lottieJsons={lottieJsons} />
           </TextBlock>
           <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
             <Program events={events} />
@@ -48,7 +48,8 @@ const PageTemplate = ({ events, goreiInfo }) => {
             <Program events={events} />
           </TextBlock>
           <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
-            <Door /> {/* MaxWidth setzen damit auch bei quadratischeren bildschirmen gut aussieht*/}
+            <Door lottieJsons={lottieJsons} />
+            {/* todo: MaxWidth setzen damit auch bei quadratischeren bildschirmen gut aussieht*/}
           </TextBlock>
           <TextBlock bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
             <About goreiInfo={goreiInfo} />
