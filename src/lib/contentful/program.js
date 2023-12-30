@@ -21,6 +21,7 @@ export const getEvents = async () => {
 };
 
 export const getNextTwoEvents = async () => {
+  //TODO: ZEIT UMRECHNEN
   // const res = await graphql(`
   //   query {
   //     eventCollection(
