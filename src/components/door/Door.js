@@ -1,4 +1,4 @@
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 import door from '../../../public/goreiDoor_door.json';
 import poster from '../../../public/goreiDoor_plakat.json';
 import LED1 from '../../../public/goreiDoor_led1.json';
@@ -6,21 +6,18 @@ import LED2 from '../../../public/goreiDoor_led2.json';
 import LED3 from '../../../public/goreiDoor_led3.json';
 import { Box } from '@chakra-ui/react';
 import Button3D from '../reusable/Button3D';
-import getLedWithText from '@/lib/lottie/getLedText';
-import { Suspense, useEffect, useState } from 'react';
+import setLedText from '@/lib/lottie/setLedText';
+import { Suspense, useEffect, useState, useRef } from 'react';
+import { pressStart2P } from '@/app/fonts';
+import Lottie from 'lottie-react';
 
-const Door = () => {
-  const [led1WithText, setLed1WithText] = useState(null);
-  const [led2WithText, setLed2WithText] = useState(null);
-  const [led3WithText, setLed3WithText] = useState(null);
-
+const Door = ({ lottieJsons }) => {
   const [posterWithImage, setPosterWithImage] = useState(null);
+  const [isStopped, setIsStopped] = useState(true);
+  const lottieRef = useRef(null);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    setLed1WithText(getLedWithText(LED1, 'COMING UP @ GOLDENER REITER: '));
-    setLed2WithText(getLedWithText(LED2, 'THURSDAY: DAVID BÖNING / JEYROTOTO //'));
-    setLed3WithText(getLedWithText(LED3, 'FRIDAY: DJ SWAGGER / DANCEKOWSKI //'));
-
     // const posterWithImage = { ...poster };
     let newPosterWithImage = { ...poster };
     newPosterWithImage.assets[0].u = '';
@@ -28,62 +25,72 @@ const Door = () => {
     setPosterWithImage(newPosterWithImage);
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setAnimations(
+  //       <Lottie
+  //         animationData={lottieJsons.led1}
+  //         loop={true}
+  //         style={{
+  //           width: '100%',
+  //           height: '100%',
+  //           position: 'absolute',
+  //           top: 0,
+  //           left: 0
+  //         }}
+  //         autoplay={true}
+  //       />
+  //     );
+  //   }, 100); //TODO: BULLSHIT
+  //   // Cleanup function to clear the timeout if the component unmounts
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   return (
     <Box pos="relative" h="100%">
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* todo Suspense??? */}
-        <Box h="100%" pos="relative">
-          <Lottie
-            animationData={door}
-            loop={false}
-            style={{ width: 'auto', height: '100%' }}
-            autoplay={false}
-          />
-          {/* <Lottie
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      {/* todo Suspense??? */}
+      <Box h="100%" pos="relative">
+        <Lottie
+          animationData={door}
+          loop={false}
+          style={{ width: 'auto', height: '100%' }}
+          autoplay={false}
+          lottieRef={lottieRef}
+          direction={direction}
+          onAnimationEnd={() => setDirection(-direction)} // TODO!!
+          // keepLastFrame={true}
+        />
+        {/* <Lottie
           animationData={posterWithImage}
           loop={false}
           style={{ width: 'auto', height: '100%', position: 'absolute', top: 0, left: 0 }}
           autoplay={false}
         /> */}
-          <Lottie
-            animationData={LED3}
-            loop={true}
-            style={{
-              width: '100%',
-              height: '100%',
-              position: 'absolute',
-              top: 0,
-              left: 0
-            }}
-            autoplay={true}
-          />
-          <Lottie
-            animationData={LED2}
-            loop={true}
-            style={{
-              width: '100%',
-              height: '100%',
-              position: 'absolute',
-              top: 0,
-              left: 0
-            }}
-            autoplay={true}
-          />
-          <Lottie
-            animationData={led1WithText}
-            loop={true}
-            style={{
-              width: '100%',
-              height: '100%',
-              position: 'absolute',
-              top: 0,
-              left: 0
-            }}
-            autoplay={true}
-          />
-        </Box>
-      </Suspense>
-      <Box pos="absolute" left="87%" bottom="50%" zIndex="2">
+
+        <Lottie
+          animationData={lottieJsons.leds}
+          loop={true}
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            fontFamily: pressStart2P.style.fontFamily
+          }}
+          autoplay={true}
+        />
+      </Box>
+      {/* </Suspense> */}
+      <Box
+        pos="absolute"
+        left="87%"
+        bottom="50%"
+        zIndex="2"
+        onClick={() => {
+          lottieRef.current.play();
+        }}>
         <Button3D></Button3D>
       </Box>
       {/* <Box

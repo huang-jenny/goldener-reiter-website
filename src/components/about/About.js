@@ -6,6 +6,7 @@ const About = ({ goreiInfo }) => {
   return (
     <>
       <Heading variant="subtitle">YOU&apos;LL NEVER RIDE ALONE</Heading>
+      {/* <div className="test">test test</div> */}
       <Divider borderColor="pink" my={6} />
 
       <Link isExternal href={goreiInfo.googleMapsLink} fill="pink">
