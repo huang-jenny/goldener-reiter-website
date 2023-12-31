@@ -5,9 +5,10 @@ import { getEvents, getNextTwoEvents } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
 import PageTemplate from '@/components/PageTemplate';
 import setLedText from '@/lib/lottie/setLedText';
-import leds from 'public/leds.json';
-import door from 'public/door.json';
-import doorWithPoster from 'public/plakat.json';
+import ledsJson from 'public/leds.json';
+import doorJson from 'public/door.json';
+import clickareaJson from 'public/clickarea.json';
+import doorWithPosterJson from 'public/doorWithPoster.json';
 import { getWeekDay } from '@/lib/formatDate';
 import { getPosterUrl } from '@/lib/contentful/door';
 import { setDoorPoster } from '@/lib/lottie/setDoorPoster';
@@ -19,7 +20,9 @@ export default async function Home() {
     getNextTwoEvents(),
     getPosterUrl()
   ]);
-  setLedText('COMING UP @ GOLDENER REITER //', 0);
+
+  // ___________LED_______________
+  // setLedText(ledsJson, 'COMING UP @ GOLDENER REITER //', 0);
 
   // change LED text in Lottie Jsons according to retrieved events
   nextTwoEvents.forEach((event, index) => {
@@ -31,12 +34,18 @@ export default async function Home() {
         ? event.lineupCollection.items.map((item) => item.artistName).join(' & ')
         : '') +
       ' //';
-    setLedText(lineup.toUpperCase(), index + 1);
+    setLedText(ledsJson, lineup.toUpperCase(), index + 1);
   });
 
-  setDoorPoster(posterUrl);
+  // ___________POSTER_______________
+  setDoorPoster(doorWithPosterJson, posterUrl);
 
-  const lottieJsons = { leds: leds, door: door, doorWithPoster: doorWithPoster };
+  const lottieJsons = {
+    leds: ledsJson,
+    door: doorJson,
+    doorWithPoster: doorWithPosterJson,
+    clickarea: clickareaJson
+  };
   const doorData = {
     lottieJsons: lottieJsons
   };

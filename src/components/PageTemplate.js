@@ -88,7 +88,7 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
           </Link>
         </Box>
 
-        <Box fontSize="13px" pl={12}>
+        <Box fontSize="13px" pl={6}>
           <Link href="/impressum">IMPRESSUM</Link>
         </Box>
       </Flex>
