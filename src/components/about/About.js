@@ -81,6 +81,22 @@ const About = ({ goreiInfo }) => {
           </Box>
         </Link>
       </Wrap>
+
+      <Box mt={20}>
+        Foto-Galerie??
+        <br />
+        tbd
+        <br />
+        tbd
+        <br />
+        tbd
+        <br />
+        tbd
+        <br />
+        tbd
+        <br />
+        tbd
+      </Box>
     </>
   );
 };
