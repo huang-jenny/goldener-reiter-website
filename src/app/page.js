@@ -12,6 +12,7 @@ import doorWithPosterJson from 'public/doorWithPoster.json';
 import { getWeekDay } from '@/lib/formatDate';
 import { getPosterUrl } from '@/lib/contentful/door';
 import { setDoorPoster } from '@/lib/lottie/setDoorPoster';
+import { setDoorEasterEgg } from '@/lib/lottie/setDoorEasterEgg';
 
 export default async function Home() {
   const [events, goreiInfo, nextTwoEvents, posterUrl] = await Promise.all([
@@ -39,6 +40,8 @@ export default async function Home() {
 
   // ___________POSTER_______________
   setDoorPoster(doorWithPosterJson, posterUrl);
+
+  // setDoorEasterEgg(doorWithPosterJson, '../test.mp4');
 
   const lottieJsons = {
     leds: ledsJson,
