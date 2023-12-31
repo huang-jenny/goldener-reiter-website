@@ -1,30 +1,24 @@
-// import Lottie from 'lottie-react';
-import door from '../../../public/goreiDoor_door.json';
-import poster from '../../../public/goreiDoor_plakat.json';
-import LED1 from '../../../public/goreiDoor_led1.json';
-import LED2 from '../../../public/goreiDoor_led2.json';
-import LED3 from '../../../public/goreiDoor_led3.json';
 import { Box } from '@chakra-ui/react';
 import Button3D from '../reusable/Button3D';
-import setLedText from '@/lib/lottie/setLedText';
 import { Suspense, useEffect, useState, useRef } from 'react';
 import { pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
 
 const Door = ({ doorData }) => {
-  const [isStopped, setIsStopped] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const lottieRef = useRef(null);
   const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const handleEvent = () => {
-      // Your event handling logic here
-      console.log('Element clicked!');
+      setIsOpen(!isOpen);
+      console.log('click');
     };
 
-    // Attach the event listener to the element with the specified ID
+    // Attach the event listener to the layer #clickarea in Lottie JSON
     const element = document.getElementById('clickarea');
     if (element) {
+      element.style.cursor = 'pointer';
       element.addEventListener('click', handleEvent);
     }
 
@@ -34,6 +28,18 @@ const Door = ({ doorData }) => {
         element.removeEventListener('click', handleEvent);
       }
     };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      lottieRef.current.playSegments([0, 13], true);
+    } else {
+      lottieRef.current.playSegments([13, 0], true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    lottieRef.current.stop(); // TODO: eleganter lösen?
   }, []);
 
   return (
@@ -41,16 +47,6 @@ const Door = ({ doorData }) => {
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       {/* todo Suspense??? */}
       <Box h="100%" pos="relative">
-        <Lottie
-          animationData={doorData.lottieJsons.doorWithPoster}
-          loop={false}
-          style={{ width: 'auto', height: '100%' }}
-          autoplay={false}
-          lottieRef={lottieRef}
-          direction={direction}
-          onAnimationEnd={() => setDirection(-direction)} // TODO!!
-          // keepLastFrame={true}
-        />
         <Lottie
           animationData={doorData.lottieJsons.leds}
           loop={true}
@@ -64,6 +60,21 @@ const Door = ({ doorData }) => {
           }}
           autoplay={true}
         />
+        <Lottie
+          animationData={doorData.lottieJsons.doorWithPoster}
+          loop={false}
+          style={{ width: 'auto', height: '100%' }}
+          autoplay={false}
+          lottieRef={lottieRef}
+          // TODO!!
+          // keepLastFrame={true}
+        />
+        <Lottie
+          animationData={doorData.lottieJsons.clickarea}
+          loop={false}
+          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+          autoplay={false}
+        />
       </Box>
       {/* </Suspense> */}
       <Box
@@ -74,7 +85,7 @@ const Door = ({ doorData }) => {
         onClick={() => {
           lottieRef.current.play();
         }}>
-        <Button3D></Button3D>
+        {/* <Button3D></Button3D> */}
       </Box>
       {/* <Box
         fontSize="lg"
