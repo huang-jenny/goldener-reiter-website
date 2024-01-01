@@ -63,7 +63,7 @@ const Door = ({ doorData }) => {
         <Lottie
           animationData={doorData.lottieJsons.doorWithPoster}
           loop={false}
-          style={{ width: 'auto', height: '100%' }}
+          style={{ width: '100%', height: '100%' }}
           autoplay={false}
           lottieRef={lottieRef}
           // TODO!!
@@ -77,7 +77,7 @@ const Door = ({ doorData }) => {
         />
       </Box>
       {/* </Suspense> */}
-      <Box
+      {/* <Box
         pos="absolute"
         left="87%"
         bottom="50%"
@@ -85,8 +85,8 @@ const Door = ({ doorData }) => {
         onClick={() => {
           lottieRef.current.play();
         }}>
-        {/* <Button3D></Button3D> */}
-      </Box>
+        <Button3D></Button3D>
+      </Box> */}
       {/* <Box
         fontSize="lg"
         pos="absolute"

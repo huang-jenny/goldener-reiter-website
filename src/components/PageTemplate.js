@@ -43,7 +43,7 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
           </TextBlock>
         </VStack>
       ) : (
-        <Flex h="100vh" dir="row" gap={4} p={4} pb="38px">
+        <Flex h="100vh" dir="row" gap={4} p={4} pb="34px">
           <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
             <Program events={events} />
           </TextBlock>
@@ -68,7 +68,7 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
       {/* FOOTER */}
       <Flex
         px={4}
-        h={['50px', '50px', '38px']}
+        h={['50px', '50px', '34px']}
         position="absolute"
         bottom={0}
         w="100%"
@@ -81,15 +81,15 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         </Link> */}
 
         <Spacer />
-        <Box opacity="0.7" fontSize="11px" fontFamily="Arial">
-          Website designed & built by{' '}
+        <Box opacity="0.65" fontSize="10px" fontFamily="Arial">
+          website designed & built by{' '}
           <Link href="https://www.jennyhuang.de/" textDecoration="underline" isExternal>
             Jenny Huang
           </Link>
         </Box>
 
-        <Box fontSize="13px" pl={6}>
-          <Link href="/impressum">IMPRESSUM</Link>
+        <Box fontSize="11px" pl={6} opacity="0.65">
+          <Link href="/impressum">Impressum</Link>
         </Box>
       </Flex>
       {/* <Flex
