@@ -8,7 +8,7 @@ const Program = ({ events }) => {
       <Divider borderColor="blue" />
       {events?.map((event) => (
         <Box key={v4()}>
-          <Heading textTransform="uppercase" variant="date" my={2}>
+          <Heading textTransform="" variant="date" my={2}>
             {formatDate(event.date)}
           </Heading>
           <Box textTransform="uppercase">{event.eventname}</Box>
@@ -17,6 +17,7 @@ const Program = ({ events }) => {
               <Link
                 // textDecoration={lineup.link ? 'underline' : 'none'}
                 href={lineup.link}
+                textTransform="uppercase"
                 isExternal
                 pointerEvents={lineup.link ? '' : 'none'}>
                 {lineup.artistName}{' '}

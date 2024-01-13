@@ -62,6 +62,7 @@ const Door = ({ doorData }) => {
         />
         <Lottie
           animationData={doorData.lottieJsons.doorWithPoster}
+          // animationData={doorData.lottieJsons.door}
           loop={false}
           style={{ width: '100%', height: '100%' }}
           autoplay={false}
