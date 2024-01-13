@@ -7,7 +7,7 @@ import { Link } from '@chakra-ui/next-js';
 const Impressum = () => {
   return (
     <Box p={4}>
-      <Box my={2}>
+      <Box my={2} color="yellow">
         <Link href="/">← Home</Link>
       </Box>
       <TextBlock bgcolor="yellow" color="blue" title="Impressum">

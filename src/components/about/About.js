@@ -7,7 +7,7 @@ const About = ({ goreiInfo }) => {
     <>
       <Heading variant="subtitle">YOU&apos;LL NEVER RIDE ALONE</Heading>
       {/* <div className="test">test test</div> */}
-      <Divider borderColor="pink" my={6} />
+      <Divider borderColor="pink" my={10} />
 
       <Link isExternal href={goreiInfo.googleMapsLink} fill="pink">
         <Box
@@ -82,20 +82,13 @@ const About = ({ goreiInfo }) => {
         </Link>
       </Wrap>
 
-      <Box mt={20}>
-        Foto-Galerie??
-        <br />
-        tbd
-        <br />
-        tbd
-        <br />
-        tbd
-        <br />
-        tbd
-        <br />
-        tbd
-        <br />
-        tbd
+      <Divider borderColor="pink" my={10} />
+      <Box textAlign="justify">
+        Goldener Reiter is a nightclub in Munich (between Sendlinger Tor and Fraunhoferstraße) where
+        you can enjoy classic house and many subgenres. Expect well selected underground music that
+        will make you dance thanks to a great sound system and quality drinks. <br />
+        Please be respectful and treat everyone as you would like to be treated. We do not tolerate
+        racism, sexism, homophobia, transphobia or other hateful comments.
       </Box>
     </>
   );

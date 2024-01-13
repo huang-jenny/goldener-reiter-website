@@ -73,7 +73,7 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         bottom={0}
         w="100%"
         alignItems="center"
-        color="blue">
+        color="yellow">
         {/* <Spacer /> */}
         {/*  */}
         {/* <Link>
@@ -81,15 +81,30 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         </Link> */}
 
         <Spacer />
-        <Box opacity="0.65" fontSize="10px" fontFamily="Arial">
+        <Box
+          fontSize="10px"
+          fontFamily="roboto"
+          fontWeight="100"
+          letterSpacing=".03rem"
+          opacity="1">
           website designed & built by{' '}
-          <Link href="https://www.jennyhuang.de/" textDecoration="underline" isExternal>
+          <Link
+            href="https://www.jennyhuang.de/"
+            // textDecoration="underline"
+            isExternal>
             Jenny Huang
           </Link>
         </Box>
 
-        <Box fontSize="11px" pl={6} opacity="0.65">
-          <Link href="/impressum">Impressum</Link>
+        <Box
+          fontSize="11px"
+          pl={6}
+          fontFamily="roboto"
+          fontWeight="500"
+          letterSpacing=".03rem"
+          color="yellow"
+          opacity={1}>
+          <Link href="/impressum">IMPRESSUM</Link>
         </Box>
       </Flex>
       {/* <Flex

@@ -1,13 +1,14 @@
 'use client';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
-import { pressStart2P, quantico } from './fonts';
+import { pressStart2P, quantico, roboto } from './fonts';
 
 export const Providers = ({ children }) => {
   const theme = extendTheme({
     fonts: {
       pressStart2P: pressStart2P.style.fontFamily,
-      quantico: quantico.style.fontFamily
+      quantico: quantico.style.fontFamily,
+      roboto: roboto.style.fontFamily
     },
     components: {
       Heading: {
@@ -54,7 +55,9 @@ export const Providers = ({ children }) => {
       global: {
         body: {
           bg: '#E00404',
-          //   color: 'black',
+          bg: '#121117',
+
+          // color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
           fontSize: ['18px', '20px', '22px', '24px']
         },
