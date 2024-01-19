@@ -35,7 +35,7 @@ export const Providers = ({ children }) => {
             fontFamily: dynamicbrk.style.fontFamily,
             fontFamily: dbxlnightfever.style.fontFamily,
             // fontFamily: goldman.style.fontFamily,
-            fontSize: ['1.9em', '2em', '2.1em', '2.2em', '2.1em'],
+            fontSize: ['1.9em', '2em', '2.1em', '2.2em'],
             fontWeight: 'normal'
             // color: 'yellow'
           },
@@ -48,9 +48,7 @@ export const Providers = ({ children }) => {
           },
           date: {
             // fontFamily: pressStart2P.style.fontFamily,
-            // fontSize: '0.85em'
             // fontFamily: matrix_complex.style.fontFamily,
-            // fontSize: '1em'
             // fontFamily: quantico.style.fontFamily,
             // fontFamily: dbxlnightfever.style.fontFamily,
 
@@ -99,7 +97,7 @@ export const Providers = ({ children }) => {
 
           // color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
-          fontSize: ['18px', '20px', '22px', '24px', '26px']
+          fontSize: ['calc(13px + 1.2vmin)']
         },
         div: {
           // fontFamily: quantico.style.fontFamily

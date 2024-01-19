@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 
 const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
   const [pageContent, setPageContent] = useState(null);
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const isMobile = useBreakpointValue({ base: true, lg: false }); //todo: testen auf versch geräten
   const theme = useTheme();
   useEffect(() => {
     setPageContent(
