@@ -54,6 +54,7 @@ export const Providers = ({ children }) => {
 
             fontSize: '0.85em',
             fontWeight: 'normal'
+            // opacity: '0.7'
           },
           lineup: {
             fontSize: '1em',
@@ -62,7 +63,10 @@ export const Providers = ({ children }) => {
           },
           eventname: {
             fontSize: '1em',
-            fontWeight: 'normal'
+            // fontWeight: 'normal',
+            letterSpacing: '.07em',
+            opacity: '1',
+            color: '#6c39db'
           }
         }
       },
