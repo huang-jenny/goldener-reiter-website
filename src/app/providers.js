@@ -59,7 +59,7 @@ export const Providers = ({ children }) => {
           },
           lineup: {
             fontSize: '1em',
-            letterSpacing: '.1rem'
+            letterSpacing: '.07em'
             // fontWeight: 'normal'
           },
           eventname: {
