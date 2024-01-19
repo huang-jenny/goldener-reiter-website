@@ -1,4 +1,4 @@
-import { Box, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Image, useBreakpointValue } from '@chakra-ui/react';
 import Button3D from '../reusable/Button3D';
 import { Suspense, useEffect, useState, useRef } from 'react';
 import { matrix_complex, pressStart2P } from '@/app/fonts';
@@ -8,7 +8,6 @@ const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const lottieRef = useRef(null);
   const [direction, setDirection] = useState(1);
-  const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
     const handleEvent = () => {
@@ -44,10 +43,11 @@ const Door = ({ doorData }) => {
   }, []);
 
   return (
-    <Box pos="relative" h="100%">
+    <>
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       {/* todo Suspense??? */}
-      <Box h={isMobile ? '100%' : '100vh'} pos="relative">
+
+      <Box h="100%" w="100%" pos="relative">
         <Lottie
           animationData={doorData.lottieJsons.leds}
           loop={true}
@@ -61,13 +61,31 @@ const Door = ({ doorData }) => {
           }}
           autoplay={true}
         />
+        {/* <Image
+          src="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=5.0.39"
+          height="100%"
+          width="100%"
+          aspectRatio={1 / 1}
+          display="block"
+          // position="absolute"
+          objectFit="cover"
+        /> */}
         <Lottie
           animationData={doorData.lottieJsons.doorWithPoster}
           // animationData={doorData.lottieJsons.door}
           loop={false}
-          style={{ width: '100%', height: '100%' }}
+          style={{
+            // position: 'absolute',
+            width: '100%',
+            height: '100%',
+            minHeight: '100%',
+            minWidth: '100%'
+
+            // preserveAspectRatio: 'xMidYMid meet'
+          }}
           autoplay={false}
           lottieRef={lottieRef}
+
           // TODO!!
           // keepLastFrame={true}
         />
@@ -79,27 +97,7 @@ const Door = ({ doorData }) => {
         />
       </Box>
       {/* </Suspense> */}
-      {/* <Box
-        pos="absolute"
-        left="87%"
-        bottom="50%"
-        zIndex="2"
-        onClick={() => {
-          lottieRef.current.play();
-        }}>
-        <Button3D></Button3D>
-      </Box> */}
-      {/* <Box
-        fontSize="lg"
-        pos="absolute"
-        left="45%"
-        bottom="130px"
-        textAlign="center"
-        zIndex="2"
-        bgColor="pink">
-        &apos;knock knock&apos;
-      </Box> */}
-    </Box>
+    </>
   );
 };
 
