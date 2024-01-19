@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 
 const Program = ({ events }) => {
   return (
-    <VStack w="100%" align="left" spacing={[3, 5, 6, 7, 8]}>
+    <VStack w="100%" align="left" spacing={[5, 5, 6, 7, 8]}>
       <Divider borderColor="blue" />
       {events?.map((event) => (
         <Box key={v4()}>
@@ -16,7 +16,7 @@ const Program = ({ events }) => {
           <Box>
             {event.eventname && (
               <>
-                <Heading mt={4} variant="eventname">
+                <Heading variant="eventname">
                   <Text as="span" textTransform="uppercase">
                     {event.eventname}
                   </Text>
