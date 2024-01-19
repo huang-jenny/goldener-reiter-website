@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import Button3D from '../reusable/Button3D';
 import { Suspense, useEffect, useState, useRef } from 'react';
 import { matrix_complex, pressStart2P } from '@/app/fonts';
@@ -8,6 +8,7 @@ const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const lottieRef = useRef(null);
   const [direction, setDirection] = useState(1);
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
     const handleEvent = () => {
@@ -46,7 +47,7 @@ const Door = ({ doorData }) => {
     <Box pos="relative" h="100%">
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       {/* todo Suspense??? */}
-      <Box h="100%" pos="relative">
+      <Box h={isMobile ? '100%' : '100vh'} pos="relative">
         <Lottie
           animationData={doorData.lottieJsons.leds}
           loop={true}
