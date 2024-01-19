@@ -6,6 +6,7 @@ import {
   Heading,
   SimpleGrid,
   Spacer,
+  useTheme,
   // Link,
   useBreakpointValue,
   VStack
@@ -18,14 +19,14 @@ import TextBlock from './reusable/TextBlock';
 import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 
-const PageTemplate = ({ events, goreiInfo, doorData }) => {
+const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
   const [pageContent, setPageContent] = useState(null);
   const isMobile = useBreakpointValue({ base: true, md: false });
-
+  const theme = useTheme();
   useEffect(() => {
     setPageContent(
       isMobile ? (
-        <VStack pb="50px">
+        <VStack pb="50px" gap={0}>
           <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
             <Door doorData={doorData} />
           </TextBlock>
@@ -44,14 +45,30 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         </VStack>
       ) : (
         <Flex h="100vh" dir="row" gap={4} p={4} pb="34px">
-          <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" flex="1">
+          <TextBlock
+            bgcolor="pink"
+            // textShadow={`-2px 4px 0px ${theme.colors.blue}`}
+            color="blue"
+            title="Program"
+            textAlign="left"
+            flex="1">
             <Program events={events} />
           </TextBlock>
           <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
             <Door doorData={doorData} />
             {/* todo: MaxWidth setzen damit auch bei quadratischeren bildschirmen gut aussieht*/}
           </TextBlock>
-          <TextBlock bgcolor="blue" color="pink" title="Goldener Reiter" textAlign="right" flex="1">
+          <TextBlock
+            bgcolor="blue"
+            // textShadow={`-2px 4px 0px ${theme.colors.pink}`}
+            color="pink"
+            title={
+              <>
+                Goldener <br /> Reiter
+              </>
+            }
+            textAlign="right"
+            flex="1">
             <About goreiInfo={goreiInfo} />
           </TextBlock>
         </Flex>
@@ -73,7 +90,7 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         bottom={0}
         w="100%"
         alignItems="center"
-        color="yellow">
+        color="yellowTransparent">
         {/* <Spacer /> */}
         {/*  */}
         {/* <Link>
@@ -81,30 +98,23 @@ const PageTemplate = ({ events, goreiInfo, doorData }) => {
         </Link> */}
 
         <Spacer />
-        <Box
-          fontSize="10px"
-          fontFamily="roboto"
-          fontWeight="100"
-          letterSpacing=".03rem"
-          opacity="1">
+        <Box fontSize="10px" fontFamily="roboto" fontWeight="300" letterSpacing=".03rem">
           website designed & built by{' '}
-          <Link
-            href="https://www.jennyhuang.de/"
-            // textDecoration="underline"
-            isExternal>
+          <Link href="https://www.jennyhuang.de/" textDecoration="underline" isExternal>
             Jenny Huang
           </Link>
         </Box>
 
         <Box
-          fontSize="11px"
+          fontSize="10px"
           pl={6}
           fontFamily="roboto"
-          fontWeight="500"
+          fontWeight="300"
           letterSpacing=".03rem"
-          color="yellow"
-          opacity={1}>
-          <Link href="/impressum">IMPRESSUM</Link>
+          textDecoration="underline"
+          // color="yellow"
+        >
+          <Link href="/impressum">Impressum</Link>
         </Box>
       </Flex>
       {/* <Flex

@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import Program from '@/components/program/Program';
 import { getEvents, getNextTwoEvents } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
-import PageTemplate from '@/components/PageTemplate';
+import PageTemplate from '@/components/PageLayout';
 import setLedText from '@/lib/lottie/setLedText';
 import ledsJson from 'public/leds.json';
 import doorJson from 'public/door.json';
@@ -23,7 +23,7 @@ export default async function Home() {
   ]);
 
   // ___________LED_______________
-  // setLedText(ledsJson, 'COMING UP @ GOLDENER REITER //', 0);
+  setLedText(ledsJson, 'Coming up @ Goldener Reiter //', 0);
 
   // change LED text in Lottie Jsons according to retrieved events
   nextTwoEvents.forEach((event, index) => {

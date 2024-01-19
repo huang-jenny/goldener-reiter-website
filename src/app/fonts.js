@@ -1,5 +1,5 @@
-import { Press_Start_2P, Quantico, Roboto } from 'next/font/google';
-// import localFont from 'next/font/local';
+import { Hammersmith_One, Press_Start_2P, Quantico, Roboto, Goldman } from 'next/font/google';
+import localFont from 'next/font/local';
 
 export const pressStart2P = Press_Start_2P({
   preload: true,
@@ -16,6 +16,14 @@ export const quantico = Quantico({
   weight: '700'
 });
 
+export const hammersmithOne = Hammersmith_One({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-hammersmith-one',
+  weight: '400'
+});
+
 export const roboto = Roboto({
   preload: true,
   subsets: ['latin'],
@@ -23,4 +31,33 @@ export const roboto = Roboto({
   variable: '--font-roboto',
   weight: ['100', '300', '400', '500', '700']
 });
+
+export const goldman = Goldman({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-goldman',
+  weight: '400'
+});
 // export const myFont = localFont({ src: '../../public/PressStart2P-Regular.ttf' });
+
+export const matrix_complex = localFont({
+  src: '../../public/Matrix_Complex_NC.ttf'
+});
+
+export const chargen = localFont({
+  src: '../../public/6809chargen.otf'
+});
+
+export const dbxlnightfever = localFont({
+  src: '../../public/dbxlnightfever.wide.ttf',
+  style: 'wide'
+});
+
+export const hemihead426 = localFont({
+  src: '../../public/hemi-head-426.otf'
+});
+
+export const dynamicbrk = localFont({
+  src: '../../public/dynamic-brk.ttf'
+});

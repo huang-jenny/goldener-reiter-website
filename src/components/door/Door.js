@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import Button3D from '../reusable/Button3D';
 import { Suspense, useEffect, useState, useRef } from 'react';
-import { pressStart2P } from '@/app/fonts';
+import { matrix_complex, pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
 
 const Door = ({ doorData }) => {
