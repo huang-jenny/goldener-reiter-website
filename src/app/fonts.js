@@ -42,22 +42,27 @@ export const goldman = Goldman({
 // export const myFont = localFont({ src: '../../public/PressStart2P-Regular.ttf' });
 
 export const matrix_complex = localFont({
-  src: '../../public/Matrix_Complex_NC.ttf'
+  src: '../../public/Matrix_Complex_NC.ttf',
+  display: 'block'
 });
 
 export const chargen = localFont({
-  src: '../../public/6809chargen.otf'
+  src: '../../public/6809chargen.otf',
+  display: 'block'
 });
 
 export const dbxlnightfever = localFont({
   src: '../../public/dbxlnightfever.wide.ttf',
+  display: 'block',
   style: 'wide'
 });
 
 export const hemihead426 = localFont({
-  src: '../../public/hemi-head-426.otf'
+  src: '../../public/hemi-head-426.otf',
+  display: 'block'
 });
 
 export const dynamicbrk = localFont({
-  src: '../../public/dynamic-brk.ttf'
+  src: '../../public/dynamic-brk.ttf',
+  display: 'block'
 });

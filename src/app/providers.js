@@ -20,7 +20,10 @@ export const Providers = ({ children }) => {
       pressStart2P: pressStart2P.style.fontFamily,
       quantico: quantico.style.fontFamily,
       roboto: roboto.style.fontFamily,
-      matrix_complex: matrix_complex.style.fontFamily
+      matrix_complex: matrix_complex.style.fontFamily,
+      dbxlnightfever: dbxlnightfever.style.fontFamily,
+      dynamicbrk: dynamicbrk.style.fontFamily,
+      goldman: goldman.style.fontFamily
     },
     components: {
       Heading: {
@@ -98,6 +101,7 @@ export const Providers = ({ children }) => {
         body: {
           bg: '#E00404',
           bg: '#121117',
+          // bg: "black",
 
           // color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
