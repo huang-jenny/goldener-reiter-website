@@ -3,6 +3,8 @@ import Button3D from '../reusable/Button3D';
 import { Suspense, useEffect, useState, useRef } from 'react';
 import { matrix_complex, pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
+import { DotLottiePlayer, Controls } from '@dotlottie/react-player';
+import '@dotlottie/react-player/dist/index.css';
 
 const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,6 +50,18 @@ const Door = ({ doorData }) => {
       {/* todo Suspense??? */}
 
       <Box h="100%" w="100%" pos="relative">
+        <DotLottiePlayer
+          src="/animationpferd.lottie"
+          autoplay
+          loop
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            fontFamily: pressStart2P.style.fontFamily
+          }}></DotLottiePlayer>
         <Lottie
           animationData={doorData.lottieJsons.leds}
           loop={true}
