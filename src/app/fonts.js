@@ -1,4 +1,11 @@
-import { Hammersmith_One, Press_Start_2P, Quantico, Roboto, Goldman } from 'next/font/google';
+import {
+  Hammersmith_One,
+  Press_Start_2P,
+  Quantico,
+  Roboto,
+  Goldman,
+  Stoke
+} from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const pressStart2P = Press_Start_2P({
@@ -22,6 +29,14 @@ export const hammersmithOne = Hammersmith_One({
   display: 'block',
   variable: '--font-hammersmith-one',
   weight: '400'
+});
+
+export const stoke = Stoke({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-stoke',
+  weight: ['300', '400']
 });
 
 export const roboto = Roboto({
