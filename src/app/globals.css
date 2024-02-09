@@ -21,9 +21,11 @@ a {
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: yellow #ffffff;
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: yellow transparent;
+  }
 }
 
 /* Chrome, Edge, and Safari */
@@ -32,7 +34,7 @@ a {
 }
 
 *::-webkit-scrollbar-track {
-  background: #ffffff00;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
