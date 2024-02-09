@@ -83,13 +83,7 @@ const About = ({ goreiInfo }) => {
       </Wrap>
 
       <Divider borderColor="pink" my={10} />
-      <Box textAlign="justify">
-        Goldener Reiter is a nightclub in Munich (between Sendlinger Tor and Fraunhoferstraße) where
-        you can enjoy classic house and many subgenres. Expect well selected underground music that
-        will make you dance thanks to a great sound system and quality drinks. <br />
-        Please be respectful and treat everyone as you would like to be treated. We do not tolerate
-        racism, sexism, homophobia, transphobia or other hateful comments.
-      </Box>
+      <Box textAlign="justify">{formatRichText(goreiInfo.infotext.json)}</Box>
     </>
   );
 };
