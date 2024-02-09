@@ -56,6 +56,7 @@ const Door = ({ doorData }) => {
           loop
           style={{
             width: '100%',
+            zIndex: 0,
             height: '100%',
             position: 'absolute',
             top: 0,
@@ -94,8 +95,6 @@ const Door = ({ doorData }) => {
             height: '100%',
             minHeight: '100%',
             minWidth: '100%'
-
-            // preserveAspectRatio: 'xMidYMid meet'
           }}
           autoplay={false}
           lottieRef={lottieRef}
@@ -103,12 +102,19 @@ const Door = ({ doorData }) => {
           // TODO!!
           // keepLastFrame={true}
         />
-        <Lottie
+        {/* <Lottie
           animationData={doorData.lottieJsons.clickarea}
           loop={false}
-          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+          style={{
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            position: 'static',
+            zIndex: 5
+          }}
           autoplay={false}
-        />
+        /> */}
       </Box>
       {/* </Suspense> */}
     </>
