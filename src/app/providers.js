@@ -103,7 +103,7 @@ export const Providers = ({ children }) => {
           bg: '#121117',
           // bg: "black",
 
-          // color: 'white',
+          color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
           fontSize: ['calc(13px + 1.2vmin)']
         },
