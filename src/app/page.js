@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import Program from '@/components/program/Program';
-import { getEvents, getNextTwoEvents } from '@/lib/contentful/program';
+import {
+  getUpcomingEvents,
+  getNextThreeEvents,
+  getMinDateTime,
+  isTodayOpen
+} from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
 import PageTemplate from '@/components/PageLayout';
 import setLedText from '@/lib/lottie/setLedText';
@@ -13,30 +18,47 @@ import { getWeekDay } from '@/lib/formatDate';
 import { getPosterUrl } from '@/lib/contentful/door';
 import { setDoorPoster } from '@/lib/lottie/setDoorPoster';
 import { setDoorEasterEgg } from '@/lib/lottie/setDoorEasterEgg';
+import {
+  formatLedText_Weekday_Event_Lineup,
+  formatLedText_Event,
+  formatLedText_Lineup,
+  formatLedText_Event_Lineup
+} from '@/lib/formatLedText';
 
 export default async function Home() {
-  const [events, goreiInfo, nextTwoEvents, posterUrl] = await Promise.all([
-    getEvents(),
+  const [events, goreiInfo, nextThreeEvents, posterUrl, isOpenToday] = await Promise.all([
+    getUpcomingEvents(),
     getGoreiInfo(),
-    getNextTwoEvents(),
-    getPosterUrl()
+    getNextThreeEvents(),
+    getPosterUrl(),
+    isTodayOpen()
   ]);
 
-  // ___________LED_______________
-  setLedText(ledsJson, 'Coming up @ Goldener Reiter //', 0);
+  // _____________ LEDS ______________
+  if (isOpenToday) {
+    const todaysEvent = nextThreeEvents[0];
 
-  // change LED text in Lottie Jsons according to retrieved events
-  nextTwoEvents.forEach((event, index) => {
-    const lineup =
-      getWeekDay(event.date) +
-      ': ' +
-      (event.eventname ? event.eventname + ' w/ ' : '') +
-      (event.lineupCollection
-        ? event.lineupCollection.items.map((item) => item.artistName).join(' & ')
-        : '') +
-      ' //';
-    setLedText(ledsJson, lineup.toUpperCase(), index + 1);
-  });
+    setLedText(ledsJson, 'TONIGHT TONIGHT TONIGHT', 0);
+
+    // if event has both eventname and lineup
+    if (todaysEvent.eventname && todaysEvent.lineupCollection.items.length > 0) {
+      setLedText(ledsJson, formatLedText_Event(todaysEvent), 1);
+      setLedText(ledsJson, 'with ' + formatLedText_Lineup(todaysEvent).toUpperCase(), 2);
+    } else if (todaysEvent.eventname) {
+      // if event has only eventname
+      setLedText(ledsJson, '* * * * * * * * * * * *', 1);
+      setLedText(ledsJson, formatLedText_Event(todaysEvent).toUpperCase(), 2);
+    } else if (todaysEvent.lineupCollection.items.length > 0) {
+      // if event has only lineup
+      setLedText(ledsJson, '* * * * * * * * * * * *', 1);
+      setLedText(ledsJson, formatLedText_Lineup(todaysEvent).toUpperCase(), 2);
+    }
+  } else {
+    nextThreeEvents.forEach((event, index) => {
+      const ledText = formatLedText_Weekday_Event_Lineup(event).toUpperCase();
+      setLedText(ledsJson, ledText, index);
+    });
+  }
 
   // ___________POSTER_______________
   setDoorPoster(doorWithPosterJson, posterUrl);
@@ -50,7 +72,8 @@ export default async function Home() {
     clickarea: clickareaJson
   };
   const doorData = {
-    lottieJsons: lottieJsons
+    lottieJsons: lottieJsons,
+    isOpenToday: isOpenToday
   };
 
   return (

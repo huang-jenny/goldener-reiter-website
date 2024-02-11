@@ -14,6 +14,9 @@ export const getGoreiInfo = async () => {
           infotext {
             json
           }
+          infotext2 {
+            json
+          }
           instagramLink
           residentAdvisorLink
           googleMapsLink

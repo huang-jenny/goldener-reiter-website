@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Link, Wrap, Divider, Flex } from '@chakra-ui/react';
+import { Box, Heading, VStack, Text, Link, Wrap, Divider, Flex, HStack } from '@chakra-ui/react';
 import { formatRichText } from '@/lib/formatRichText';
 import Image from 'next/image';
 
@@ -65,7 +65,11 @@ const About = ({ goreiInfo }) => {
       <Box pt={6}>Opening Hours:</Box>
       <Box>{formatRichText(goreiInfo.openingHours.json)}</Box>
 
-      <Wrap justify="right" pt={4}>
+      <HStack justify="right" mt={8} spacing={4}>
+        <Link isExternal href={goreiInfo.residentAdvisorLink}>
+          RA
+        </Link>
+
         <Link href={goreiInfo.instagramLink} rel="noreferrer" target="_blank" fill="pink">
           <Box width="1em" height="1em">
             <svg
@@ -80,10 +84,12 @@ const About = ({ goreiInfo }) => {
             </svg>
           </Box>
         </Link>
-      </Wrap>
+      </HStack>
 
       <Divider borderColor="pink" my={10} />
       <Box textAlign="justify">{formatRichText(goreiInfo.infotext.json)}</Box>
+      <Divider borderColor="pink" my={10} />
+      <Box textAlign="justify">{formatRichText(goreiInfo.infotext2.json)}</Box>
     </>
   );
 };
