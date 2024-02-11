@@ -3,18 +3,19 @@ import Button3D from '../reusable/Button3D';
 import { Suspense, useEffect, useState, useRef } from 'react';
 import { matrix_complex, pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
-import { DotLottiePlayer, Controls } from '@dotlottie/react-player';
+import { DotLottiePlayer, Controls, PlayerEvents } from '@dotlottie/react-player';
 import '@dotlottie/react-player/dist/index.css';
 
 const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const lottieRef = useRef(null);
+  const [horseAnimationRunning, setHorseAnimationRunning] = useState(false);
+  const doorRef = useRef(null);
+  const horseRef = useRef(null);
   const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const handleEvent = () => {
-      setIsOpen(!isOpen);
-      console.log('click');
+      setIsOpen((isOpen) => !isOpen);
     };
 
     // Attach the event listener to the layer #clickarea in Lottie JSON
@@ -30,18 +31,20 @@ const Door = ({ doorData }) => {
         element.removeEventListener('click', handleEvent);
       }
     };
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      lottieRef.current.playSegments([0, 13], true);
+    if (isOpen === true) {
+      doorRef.current?.playSegments([0, 13], true);
+      horseRef.current?.play();
     } else {
-      lottieRef.current.playSegments([13, 0], true);
+      doorRef.current?.playSegments([13, 0], true);
+      horseRef.current?.stop();
     }
   }, [isOpen]);
 
   useEffect(() => {
-    lottieRef.current.stop(); // TODO: eleganter lösen?
+    doorRef.current.stop(); // TODO: eleganter lösen? z.B. set (opening) (closing) (closed)
   }, []);
 
   return (
@@ -52,7 +55,17 @@ const Door = ({ doorData }) => {
       <Box h="100%" w="100%" pos="relative">
         <DotLottiePlayer
           src="/animationpferd.lottie"
-          autoplay
+          autoplay={false}
+          ref={horseRef}
+          onEvent={
+            doorData.isOpenToday // close door automatically if today is not open
+              ? null
+              : (event) => {
+                  if (event === PlayerEvents.LoopComplete) {
+                    setIsOpen(false);
+                  }
+                }
+          }
           loop
           style={{
             width: '100%',
@@ -63,6 +76,34 @@ const Door = ({ doorData }) => {
             left: 0,
             fontFamily: pressStart2P.style.fontFamily
           }}></DotLottiePlayer>
+
+        {/* <Image
+          src="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=5.0.39"
+          height="100%"
+          width="100%"
+          aspectRatio={1 / 1}
+          display="block"
+          // position="absolute"
+          objectFit="cover"
+        /> */}
+
+        <Lottie
+          animationData={doorData.lottieJsons.doorWithPoster} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          // animationData={doorData.lottieJsons.door}
+          loop={false}
+          style={{
+            // position: 'absolute',
+            width: '100%',
+            height: '100%',
+            minHeight: '100%',
+            minWidth: '100%'
+          }}
+          autoplay={false}
+          lottieRef={doorRef}
+
+          // TODO!!
+          // keepLastFrame={true}
+        />
         <Lottie
           animationData={doorData.lottieJsons.leds}
           loop={true}
@@ -75,32 +116,6 @@ const Door = ({ doorData }) => {
             fontFamily: pressStart2P.style.fontFamily
           }}
           autoplay={true}
-        />
-        {/* <Image
-          src="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=5.0.39"
-          height="100%"
-          width="100%"
-          aspectRatio={1 / 1}
-          display="block"
-          // position="absolute"
-          objectFit="cover"
-        /> */}
-        <Lottie
-          animationData={doorData.lottieJsons.doorWithPoster}
-          // animationData={doorData.lottieJsons.door}
-          loop={false}
-          style={{
-            // position: 'absolute',
-            width: '100%',
-            height: '100%',
-            minHeight: '100%',
-            minWidth: '100%'
-          }}
-          autoplay={false}
-          lottieRef={lottieRef}
-
-          // TODO!!
-          // keepLastFrame={true}
         />
         {/* <Lottie
           animationData={doorData.lottieJsons.clickarea}

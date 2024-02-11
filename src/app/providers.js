@@ -94,6 +94,7 @@ export const Providers = ({ children }) => {
       red: '#E00404',
       blue: '#110F91',
       pink: '#F14DFF',
+      black: "#121117",
       yellowTransparent: 'rgba(255,255,0,0.6)'
     },
     styles: {
