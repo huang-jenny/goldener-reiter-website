@@ -87,6 +87,16 @@ export const Providers = ({ children }) => {
             color: 'yellow',
             fill: 'yellow'
           }
+        },
+        variants: {
+          footer: {
+            textDecoration: 'underline',
+            color: 'inherit',
+            _hover: {
+              textDecoration: 'underline',
+              color: 'inherit'
+            }
+          }
         }
       }
     },
@@ -106,7 +116,7 @@ export const Providers = ({ children }) => {
 
           color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
-          fontSize: ['calc(13px + 1.2vmin)'],
+          fontSize: ['calc(13px + 1.2vmin)']
         },
         div: {
           // fontFamily: quantico.style.fontFamily
@@ -115,6 +125,16 @@ export const Providers = ({ children }) => {
         p: {
           // fontFamily: quantico.style.fontFamily
           fontFamily: hammersmithOne.style.fontFamily
+        },
+        a: {
+          color: 'inherit',
+          fill: 'yellow',
+          textDecoration: 'none'
+        },
+        'a:hover': {
+          //doppelt zu oben "Link"
+          color: 'yellow',
+          textDecoration: 'none'
         }
       }
     }
