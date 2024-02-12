@@ -21,7 +21,7 @@ const Door = ({ doorData }) => {
     // Attach the event listener to the layer #clickarea in Lottie JSON
     const element = document.getElementById('clickarea');
     if (element) {
-      element.style.cursor = 'pointer';
+      element.style.cursor = "url('/cursor-hand-icon.svg'), pointer";
       element.addEventListener('click', handleEvent);
     }
 

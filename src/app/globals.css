@@ -9,6 +9,12 @@ body {
   color: white;
   max-width: 100vw;
   overflow-x: hidden;
+  /* cursor: url('/horse-icon.svg'), auto; */
+  cursor: url('/pointer-arrow-icon.svg'), auto;
+}
+
+a:hover {
+  cursor: url('/cursor-hand-icon.svg'), pointer;
 }
 
 a {

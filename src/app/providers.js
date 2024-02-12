@@ -94,19 +94,19 @@ export const Providers = ({ children }) => {
       red: '#E00404',
       blue: '#110F91',
       pink: '#F14DFF',
-      black: "#121117",
+      black: '#121117',
       yellowTransparent: 'rgba(255,255,0,0.6)'
     },
     styles: {
       global: {
         body: {
-          bg: '#E00404',
+          // bg: '#E00404',
           bg: '#121117',
           // bg: "black",
 
           color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
-          fontSize: ['calc(13px + 1.2vmin)']
+          fontSize: ['calc(13px + 1.2vmin)'],
         },
         div: {
           // fontFamily: quantico.style.fontFamily
