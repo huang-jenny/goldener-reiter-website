@@ -31,13 +31,13 @@ const TextBlock = ({
       textAlign={textAlign}
       wordBreak="break-word"
       pb={hasPadding ? ['2%'] : 0}
-      pt={['15px', '7px', hasPadding ? ['2%'] : 0]}
-      px={hasPadding ? ['3%'] : 0} //{[2, 3, 5, 7, 10]}
+      pt={['18px', '7px', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
+      px={hasPadding ? ['5%', '4%', '3%'] : 0}
       color={color}>
       {title && (
         <Heading
           variant="title"
-          mb={8}
+          // mb={[4, 6, 8]}
           // color="yellow"
           // textShadow={textShadow}
           color={color}
