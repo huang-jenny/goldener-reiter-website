@@ -5,7 +5,8 @@ import {
   getUpcomingEvents,
   getNextThreeEvents,
   getMinDateTime,
-  isTodayOpen
+  isTodayOpen,
+  getNextEvent
 } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
 import PageTemplate from '@/components/PageLayout';
@@ -23,19 +24,23 @@ import {
   formatLedText_Lineup,
   formatLedText_Event_Lineup
 } from '@/lib/formatLedText';
+import { getImpressum } from '@/lib/contentful/impressum';
 
 export default async function Home() {
-  const [events, goreiInfo, nextThreeEvents, posterUrl, isOpenToday] = await Promise.all([
-    getUpcomingEvents(),
-    getGoreiInfo(),
-    getNextThreeEvents(),
-    getPosterUrl(),
-    isTodayOpen()
-  ]);
+  const [events, goreiInfo, nextThreeEvents, nextEvent, posterUrl, isOpenToday] = await Promise.all(
+    [
+      getUpcomingEvents(),
+      getGoreiInfo(),
+      getNextThreeEvents(),
+      getNextEvent(),
+      getPosterUrl(),
+      isTodayOpen()
+    ]
+  );
 
   // _____________ LEDS ______________
   if (isOpenToday) {
-    const todaysEvent = nextThreeEvents[0];
+    const todaysEvent = nextEvent[0];
 
     setLedText(ledsJson, 'TONIGHT TONIGHT TONIGHT', 0);
 

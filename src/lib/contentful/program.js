@@ -1,6 +1,6 @@
 import { graphql } from '.';
 // let date = new Date().toISOString();
-let date = '2023-12-15T03:13:25.122Z'; // TODO: NUR FÜR DEMO ZWECKE, oben verwenden für produktion
+let date = '2023-12-01T19:13:25.122Z'; // TODO: NUR FÜR DEMO ZWECKE, oben verwenden für produktion
 let minDate = getCorrectedCurrentDateTime(new Date(date));
 
 export const getUpcomingEvents = async () => {
@@ -25,17 +25,6 @@ export const getUpcomingEvents = async () => {
 };
 
 export const getNextThreeEvents = async () => {
-  // let minDate = new Date(date);
-
-  // // time correction because contentful wrongly assumes the event date is in UTC
-  // isDaylightSavingTime(minDate)
-  //   ? minDate.setHours(minDate.getHours() + 2)
-  //   : minDate.setHours(minDate.getHours() + 1);
-
-  // minDate.setDate(minDate.getDate() - 1); // time correction because time of date is 00:00:00 and we want to include the current day
-  // minDate.setHours(minDate.getHours() - 6); // time correction because events go until the next morning
-  // console.log('minDate', minDate.toISOString());
-
   const res = await graphql(`
     query {
       eventCollection(
@@ -62,10 +51,35 @@ export const getNextThreeEvents = async () => {
   return data?.eventCollection?.items;
 };
 
+export const getNextEvent = async () => {
+  const res = await graphql(`
+    query {
+      eventCollection(
+        where: { date_gte: "${minDate.toISOString()}" }
+        order: [date_ASC]
+        limit: 1
+      ) {
+        items {
+          date
+          eventname
+          lineupCollection {
+            items {
+              artistName
+              link
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const { data } = res;
+  return data?.eventCollection?.items;
+};
+
 export const isTodayOpen = async () => {
-  // TODO: ASYNC AWAIT
-  const nextThreeEvents = await getNextThreeEvents();
-  const nextEventDate = new Date(nextThreeEvents[0]?.date);
+  const nextEvent = await getNextEvent();
+  const nextEventDate = new Date(nextEvent[0]?.date);
   // console.log('nextEventDate', nextEventDate.toISOString(), minDate.toISOString());
   return nextEventDate - minDate < 1000 * 60 * 60 * 24; // if difference is less than 24 hours
 };

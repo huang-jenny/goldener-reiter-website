@@ -4,7 +4,7 @@ import { Providers } from './providers';
 
 export const metadata = {
   title: 'Goldener Reiter',
-  description: 'You&apos;ll never ride alone'
+  description: "You'll never ride alone"
 };
 
 export default function RootLayout({ children }) {
