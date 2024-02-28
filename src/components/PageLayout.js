@@ -44,7 +44,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
           </TextBlock>
         </VStack>
       ) : (
-        <Flex h="100vh" dir="row" gap={4} p={4} pb="34px">
+        <Flex h="100vh" dir="row" gap={4} p={4} pb="32px">
           <TextBlock
             bgcolor="pink"
             // textShadow={`-2px 4px 0px ${theme.colors.blue}`}
@@ -85,7 +85,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
       {/* FOOTER */}
       <Flex
         px={4}
-        h={['50px', '50px', '34px']}
+        h={['50px', '50px', '50px', '32px']}
         position="absolute"
         bottom={0}
         color="yellowTransparent"

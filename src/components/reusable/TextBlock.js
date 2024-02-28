@@ -31,7 +31,7 @@ const TextBlock = ({
       textAlign={textAlign}
       wordBreak="break-word"
       pb={hasPadding ? ['2%'] : 0}
-      pt={['18px', '7px', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
+      pt={['18px', '16px', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
       px={hasPadding ? ['5%', '4%', '3%'] : 0}
       color={color}>
       {title && (
