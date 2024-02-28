@@ -1,6 +1,6 @@
 import { graphql } from '.';
-// let date = new Date().toISOString();
-let date = '2023-12-01T19:13:25.122Z'; // TODO: NUR FÜR DEMO ZWECKE, oben verwenden für produktion
+let date = new Date().toISOString();
+// let date = '2023-12-01T19:13:25.122Z'; // TODO: NUR FÜR DEMO ZWECKE, oben verwenden für produktion
 let minDate = getCorrectedCurrentDateTime(new Date(date));
 
 export const getUpcomingEvents = async () => {
