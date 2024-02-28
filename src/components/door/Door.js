@@ -5,6 +5,7 @@ import { matrix_complex, pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
 import { DotLottiePlayer, Controls, PlayerEvents } from '@dotlottie/react-player';
 import '@dotlottie/react-player/dist/index.css';
+import { shuffleArray } from '@/lib/shuffleArray';
 
 const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,9 @@ const Door = ({ doorData }) => {
   const doorRef = useRef(null);
   const horseRef = useRef(null);
   const [direction, setDirection] = useState(1);
+  const [horseAnimationQueue, setHorseAnimationQueue] = useState(
+    shuffleArray([...doorData.lottieFiles.horses])
+  );
 
   useEffect(() => {
     const handleEvent = () => {
@@ -40,7 +44,8 @@ const Door = ({ doorData }) => {
       horseRef.current?.play();
     } else {
       doorRef.current?.playSegments([13, 0], true);
-      horseRef.current?.stop();
+
+      // horseRef.current?.stop();
     }
   }, [isOpen]);
 
@@ -54,19 +59,29 @@ const Door = ({ doorData }) => {
       {/* todo Suspense??? */}
 
       <Box h="100%" w="100%" pos="relative">
+        <Image
+          src="/doorBg.svg"
+          alt="background of a door"
+          width="100%"
+          height="100%"
+          pos="absolute"
+          left={0}
+          top={0}
+          zIndex={0}></Image>
         <DotLottiePlayer
-          src="/animationpferd.lottie"
+          key={horseAnimationQueue[0]} // TO FORCE RERENDER!!!
+          src={horseAnimationQueue[0]}
           autoplay={false}
           ref={horseRef}
-          onEvent={
-            doorData.isOpenToday // close door automatically if today is not open
-              ? null
-              : (event) => {
-                  if (event === PlayerEvents.LoopComplete) {
-                    setIsOpen(false);
-                  }
-                }
-          }
+          // onEvent={
+          //   doorData.isOpenToday // close door automatically if today is not open
+          //     ? null
+          //     : (event) => {
+          //         if (event === PlayerEvents.LoopComplete) {
+          //           setIsOpen(false);
+          //         }
+          //       }
+          // }
           loop
           style={{
             width: '100%',
@@ -89,7 +104,7 @@ const Door = ({ doorData }) => {
         /> */}
 
         <Lottie
-          animationData={doorData.lottieJsons.doorWithPoster} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          animationData={doorData.lottieFiles.door} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
           // animationData={doorData.lottieJsons.door}
           loop={false}
           style={{
@@ -101,12 +116,21 @@ const Door = ({ doorData }) => {
           }}
           autoplay={false}
           lottieRef={doorRef}
+          onEnterFrame={(frame) => {
+            if (frame.currentTime === 0) {
+              // if door closed
+              let newAnimationQueue = [...horseAnimationQueue];
+              newAnimationQueue.push(newAnimationQueue[0]);
+              newAnimationQueue.shift();
+              setHorseAnimationQueue(newAnimationQueue);
+            }
+          }}
 
           // TODO!!
           // keepLastFrame={true}
         />
         <Lottie
-          animationData={doorData.lottieJsons.leds}
+          animationData={doorData.lottieFiles.leds}
           loop={true}
           style={{
             width: '100%',

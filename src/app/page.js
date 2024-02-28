@@ -12,7 +12,6 @@ import PageTemplate from '@/components/PageLayout';
 import setLedText from '@/lib/lottie/setLedText';
 import ledsJson from 'public/leds.json';
 import doorJson from 'public/door.json';
-import clickareaJson from 'public/clickarea.json';
 import doorWithPosterJson from 'public/doorWithPoster.json';
 import { getWeekDay } from '@/lib/formatDate';
 import { getPosterUrl } from '@/lib/contentful/door';
@@ -61,18 +60,43 @@ export default async function Home() {
   }
 
   // ___________POSTER_______________
-  setDoorPoster(doorWithPosterJson, posterUrl);
+  if (posterUrl) {
+    setDoorPoster(doorWithPosterJson, posterUrl);
+  }
 
   // setDoorEasterEgg(doorWithPosterJson, '../test.mp4');
 
-  const lottieJsons = {
+  const lottieFiles = {
     leds: ledsJson,
-    door: doorJson,
-    doorWithPoster: doorWithPosterJson,
-    clickarea: clickareaJson
+    door: posterUrl ? doorWithPosterJson : doorJson,
+    // doorWithPoster: doorWithPosterJson,
+    horses: isOpenToday
+      ? [
+          '/animationpferd_dance.lottie',
+          '/animationpferd_dj.lottie',
+          '/animationpferd_drink.lottie'
+        ]
+      : [
+          '/animationpferd_giessen.lottie',
+          '/animationpferd_dusche.lottie',
+          '/animationpferd_lesen.lottie'
+        ]
+    // {
+
+    // eventDay: [
+    //   '/animationpferd_dance.lottie',
+    //   '/animationpferd_dj.lottie',
+    //   '/animationpferd_drink.lottie'
+    // ],
+    // nonEventDay: [
+    //   '/animationpferd_giessen.lottie',
+    //   '/animationpferd_dusche.lottie',
+    //   '/animationpferd_lesen.lottie'
+    // ]
+    // }
   };
   const doorData = {
-    lottieJsons: lottieJsons,
+    lottieFiles: lottieFiles,
     isOpenToday: isOpenToday
   };
 
