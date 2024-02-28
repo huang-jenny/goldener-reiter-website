@@ -1,6 +1,6 @@
 export const graphql = async (query) => {
   const r = await fetch(process.env.CONTENTFUL_ADDRESS, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 900 }, // update every 15 minutes
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
