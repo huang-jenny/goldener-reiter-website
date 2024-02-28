@@ -46,6 +46,7 @@ export const Providers = ({ children }) => {
             // fontFamily: quantico.style.fontFamily,
             // fontFamily: hammersmithOne.style.fontFamily,
             fontSize: '1em',
+            mt: '1em',
             fontWeight: 'normal'
             // letterSpacing: '.1rem'
           },
@@ -75,6 +76,7 @@ export const Providers = ({ children }) => {
       },
       Divider: {
         baseStyle: {
+          my: ['6', '8', '8', '10'],
           borderWidth: ['2px', '2px', '2px', '4px'],
           borderRadius: ['1px', '1px', '1px', '2px'],
           opacity: '1'

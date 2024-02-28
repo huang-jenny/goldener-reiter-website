@@ -26,7 +26,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
   useEffect(() => {
     setPageContent(
       isMobile ? (
-        <VStack pb="50px" gap={0}>
+        <VStack pb="50px" gap="0">
           <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
             <Door doorData={doorData} />
           </TextBlock>

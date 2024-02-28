@@ -7,7 +7,7 @@ const About = ({ goreiInfo }) => {
     <>
       <Heading variant="subtitle">YOU&apos;LL NEVER RIDE ALONE</Heading>
       {/* <div className="test">test test</div> */}
-      <Divider borderColor="pink" my={10} />
+      <Divider borderColor="pink" />
 
       <Link isExternal href={goreiInfo.googleMapsLink} fill="pink">
         <Box
@@ -86,9 +86,9 @@ const About = ({ goreiInfo }) => {
         </Link>
       </HStack>
 
-      <Divider borderColor="pink" my={10} />
+      <Divider borderColor="pink" />
       <Box textAlign="justify">{formatRichText(goreiInfo.infotext.json)}</Box>
-      <Divider borderColor="pink" my={10} />
+      <Divider borderColor="pink" />
       <Box textAlign="justify">{formatRichText(goreiInfo.infotext2.json)}</Box>
     </>
   );
