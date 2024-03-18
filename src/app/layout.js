@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.scss';
 import { Providers } from './providers';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: 'Goldener Reiter',
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Providers>{children}</Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
