@@ -18,7 +18,7 @@ export const Providers = ({ children }) => {
       Heading: {
         baseStyle: {
           fontFamily: karla.style.fontFamily,
-          fontWeight: '700'
+          fontWeight: '600'
         },
         variants: {
           title: {
@@ -112,12 +112,12 @@ export const Providers = ({ children }) => {
         div: {
           // fontFamily: quantico.style.fontFamily
           fontFamily: karla.style.fontFamily,
-          fontWeight: '700'
+          fontWeight: '600'
         },
         p: {
           // fontFamily: quantico.style.fontFamily
           fontFamily: karla.style.fontFamily,
-          fontWeight: '700'
+          fontWeight: '600'
         },
         a: {
           color: 'inherit',
