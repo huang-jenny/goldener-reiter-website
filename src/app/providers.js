@@ -65,7 +65,7 @@ export const Providers = ({ children }) => {
       },
       Divider: {
         baseStyle: {
-          my: ['6', '8', '8', '10'],
+          my: ['4', '6', '8', '10'],
           borderWidth: ['2px', '2px', '2px', '4px'],
           borderRadius: ['1px', '1px', '1px', '2px'],
           opacity: '1'
