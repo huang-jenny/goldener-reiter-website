@@ -64,9 +64,7 @@ const Door = ({ doorData }) => {
           alt="background of a door"
           width="100%"
           height="100%"
-          pos="absolute"
-          left={0}
-          top={0}
+          pos="relative"
           zIndex={0}></Image>
         <DotLottiePlayer
           key={horseAnimationQueue[0]} // TO FORCE RERENDER!!!
@@ -93,22 +91,13 @@ const Door = ({ doorData }) => {
             fontFamily: pressStart2P.style.fontFamily
           }}></DotLottiePlayer>
 
-        {/* <Image
-          src="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=5.0.39"
-          height="100%"
-          width="100%"
-          aspectRatio={1 / 1}
-          display="block"
-          // position="absolute"
-          objectFit="cover"
-        /> */}
-
         <Lottie
           animationData={doorData.lottieFiles.door} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
-          // animationData={doorData.lottieJsons.door}
           loop={false}
           style={{
-            // position: 'absolute',
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%',
             height: '100%',
             minHeight: '100%',
@@ -125,9 +114,6 @@ const Door = ({ doorData }) => {
               setHorseAnimationQueue(newAnimationQueue);
             }
           }}
-
-          // TODO!!
-          // keepLastFrame={true}
         />
         <Lottie
           animationData={doorData.lottieFiles.leds}
@@ -142,19 +128,6 @@ const Door = ({ doorData }) => {
           }}
           autoplay={true}
         />
-        {/* <Lottie
-          animationData={doorData.lottieJsons.clickarea}
-          loop={false}
-          style={{
-            width: '100%',
-            height: '100%',
-            top: 0,
-            left: 0,
-            position: 'static',
-            zIndex: 5
-          }}
-          autoplay={false}
-        /> */}
       </Box>
       {/* </Suspense> */}
     </>
