@@ -4,14 +4,22 @@ const formatDate = (date) => {
     // day: 'numeric',
     // month: 'numeric'
   };
-  const dateOptions = {
+  const dateOptionsDay = {
     // weekday: 'long',
-    month: 'numeric',
+    // month: 'numeric',
     day: 'numeric'
   };
 
+  const dateOptionsMonth = {
+    // weekday: 'long',
+    month: 'numeric'
+  };
+
   const weekdayString = new Date(date).toLocaleDateString('en-US', dateOptionsWeekday);
-  const dateString = new Date(date).toLocaleDateString('en-US', dateOptions);
+  const dateString =
+    new Date(date).toLocaleDateString('en-US', dateOptionsDay) +
+    '/' +
+    new Date(date).toLocaleDateString('en-US', dateOptionsMonth);
 
   return weekdayString + ' ' + dateString;
 };
