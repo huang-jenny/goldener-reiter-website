@@ -30,8 +30,8 @@ const TextBlock = ({
       overflowY="auto"
       textAlign={textAlign}
       wordBreak="break-word"
-      pb={hasPadding ? ['2%'] : 0}
-      pt={['18px', '16px', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
+      pb={hasPadding ? ['4%', '4%', '3%'] : 0}
+      pt={['14px', '14px', hasPadding ? ['3%'] : 0]} // TODO: zu dirty
       px={hasPadding ? ['5%', '4%', '3%'] : 0}
       color={color}>
       {title && (
