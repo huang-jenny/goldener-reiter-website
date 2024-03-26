@@ -9,12 +9,12 @@ import { useEffect, useState } from 'react';
 
 const ImpressumLayout = ({ impressum }) => {
   return (
-    <Box p={4}>
+    <Box p={4} fontFamily="roboto">
       <Box my={2} color="yellow">
         <Link href="/">← Home</Link>
       </Box>
       <TextBlock bgcolor="yellow" color="blue" title="Impressum">
-        {formatRichText(impressum?.impressum?.json)}
+        <Box fontFamily="Times New Roman">{formatRichText(impressum?.impressum?.json)}</Box>
       </TextBlock>
     </Box>
   );
