@@ -30,7 +30,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
           <TextBlock bgcolor="yellow" width="100%" hasPadding={false}>
             <Door doorData={doorData} />
           </TextBlock>
-          <TextBlock bgcolor="pink" color="blue" title="Program" textAlign="left" width="100%">
+          <TextBlock bgcolor="pink" color="blue" title="Coming Up" textAlign="left" width="100%">
             <Program events={events} />
           </TextBlock>
 
@@ -49,7 +49,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
             bgcolor="pink"
             // textShadow={`-2px 4px 0px ${theme.colors.blue}`}
             color="blue"
-            title="Program"
+            title="Coming Up"
             textAlign="left"
             flex="1">
             <Program events={events} />
