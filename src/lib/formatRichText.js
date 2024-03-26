@@ -1,6 +1,6 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { UnorderedList, ListItem, Text, Heading, Box } from '@chakra-ui/react';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 export const formatRichText = (text) => {
   const renderOptions = {
@@ -21,6 +21,13 @@ export const formatRichText = (text) => {
       ),
       // eslint-disable-next-line react/no-unstable-nested-components
       [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>
+    },
+    renderMark: {
+      [MARKS.BOLD]: (text) => (
+        <Text py={2} fontWeight={800}>
+          {text}
+        </Text>
+      )
     }
   };
   return documentToReactComponents(text, renderOptions);

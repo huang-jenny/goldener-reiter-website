@@ -11,7 +11,7 @@ const Program = ({ events }) => {
       <VStack w="100%" align="left" spacing={[5, 5, 6, 7, 8]}>
         {events?.map((event) => (
           <Box key={v4()}>
-            <Heading textTransform="uppercase" variant="date" mb={2}>
+            <Heading textTransform="uppercase" variant="date" mb={3}>
               {formatDate(event.date)}
             </Heading>
             <Box>
@@ -25,7 +25,6 @@ const Program = ({ events }) => {
                       {event.lineupCollection.items.length > 0 && <> with</>}{' '}
                     </Text>
                   </Heading>
-                  <Box></Box>
                 </>
               )}
               {event.lineupCollection?.items?.map((lineup) => (
