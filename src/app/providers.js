@@ -1,27 +1,16 @@
 'use client';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
-import {
-  chargen,
-  dbxlnightfever,
-  dynamicbrk,
-  goldman,
-  karla,
-  hemihead426,
-  matrix_complex,
-  pressStart2P,
-  quantico,
-  roboto
-} from './fonts';
+import { dbxlnightfever, karla, pressStart2P, roboto } from './fonts';
 
 export const Providers = ({ children }) => {
   const theme = extendTheme({
     fonts: {
-      pressStart2P: pressStart2P.style.fontFamily,
+      // pressStart2P: pressStart2P.style.fontFamily,
       // quantico: quantico.style.fontFamily,
-      roboto: roboto.style.fontFamily,
+      roboto: roboto.style.fontFamily //for the footer
       // matrix_complex: matrix_complex.style.fontFamily,
-      dbxlnightfever: dbxlnightfever.style.fontFamily
+      // dbxlnightfever: dbxlnightfever.style.fontFamily
       // dynamicbrk: dynamicbrk.style.fontFamily,
       // goldman: goldman.style.fontFamily
     },

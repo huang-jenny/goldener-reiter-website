@@ -19,7 +19,7 @@ import TextBlock from './reusable/TextBlock';
 import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 
-const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
+const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
   const [pageContent, setPageContent] = useState(null);
   const isMobile = useBreakpointValue({ base: true, lg: false }); //todo: testen auf versch geräten
   const theme = useTheme();
@@ -108,7 +108,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
         <Box
           fontSize="10px"
           pl={6}
-          // fontFamily="roboto"
+          fontFamily="roboto"
           fontWeight="300"
           letterSpacing=".03rem"
           // color="yellow"
@@ -139,4 +139,4 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
   );
 };
 
-export default PageTemplate;
+export default MainPage;
