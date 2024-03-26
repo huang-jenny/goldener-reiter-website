@@ -3,10 +3,39 @@ import {
   Press_Start_2P,
   Quantico,
   Roboto,
+  Ubuntu,
   Goldman,
-  Stoke
+  Karla,
+  Work_Sans,
+  Stoke,
+  Kanit
 } from 'next/font/google';
 import localFont from 'next/font/local';
+
+export const karla = Karla({
+  preload: true,
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'block',
+  variable: '--font-karla',
+  weight: ['200', '300', '400', '500', '600', '700', '800']
+});
+
+export const ubuntu = Ubuntu({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-ubuntu',
+  weight: ['300', '400', '500', '700']
+});
+
+export const kanit = Kanit({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-kanit',
+  weight: ['200', '300', '400', '500', '700']
+});
 
 export const pressStart2P = Press_Start_2P({
   preload: true,
@@ -15,6 +44,15 @@ export const pressStart2P = Press_Start_2P({
   variable: '--font-press-start-2p',
   weight: '400'
 });
+
+export const workSans = Work_Sans({
+  preload: true,
+  subsets: ['latin'],
+  display: 'block',
+  variable: '--font-work-sans',
+  weight: ['300', '400', '500', '600', '700']
+});
+
 export const quantico = Quantico({
   preload: true,
   subsets: ['latin'],

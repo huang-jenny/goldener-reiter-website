@@ -108,7 +108,7 @@ const PageTemplate = ({ events, goreiInfo, doorData, textShadow }) => {
         <Box
           fontSize="10px"
           pl={6}
-          fontFamily="roboto"
+          // fontFamily="roboto"
           fontWeight="300"
           letterSpacing=".03rem"
           // color="yellow"

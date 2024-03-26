@@ -6,7 +6,7 @@ import {
   dbxlnightfever,
   dynamicbrk,
   goldman,
-  hammersmithOne,
+  karla,
   hemihead426,
   matrix_complex,
   pressStart2P,
@@ -18,24 +18,24 @@ export const Providers = ({ children }) => {
   const theme = extendTheme({
     fonts: {
       pressStart2P: pressStart2P.style.fontFamily,
-      quantico: quantico.style.fontFamily,
+      // quantico: quantico.style.fontFamily,
       roboto: roboto.style.fontFamily,
-      matrix_complex: matrix_complex.style.fontFamily,
-      dbxlnightfever: dbxlnightfever.style.fontFamily,
-      dynamicbrk: dynamicbrk.style.fontFamily,
-      goldman: goldman.style.fontFamily
+      // matrix_complex: matrix_complex.style.fontFamily,
+      dbxlnightfever: dbxlnightfever.style.fontFamily
+      // dynamicbrk: dynamicbrk.style.fontFamily,
+      // goldman: goldman.style.fontFamily
     },
     components: {
       Heading: {
         baseStyle: {
-          fontFamily: hammersmithOne.style.fontFamily
-          // fontWeight: 'bold'
+          fontFamily: karla.style.fontFamily,
+          fontWeight: '700'
         },
         variants: {
           title: {
             // fontFamily: pressStart2P.style.fontFamily,
             // fontSize: ['1.3em', '1.4em', '1.5em', '1.6em', '1.7em'] //['30px', '34px', '38px', '42px']
-            fontFamily: dynamicbrk.style.fontFamily,
+            // fontFamily: dynamicbrk.style.fontFamily,
             fontFamily: dbxlnightfever.style.fontFamily,
             // fontFamily: goldman.style.fontFamily,
             fontSize: ['1.9em', '2em', '2.1em', '2.2em'],
@@ -44,10 +44,10 @@ export const Providers = ({ children }) => {
           },
           subtitle: {
             // fontFamily: quantico.style.fontFamily,
-            // fontFamily: hammersmithOne.style.fontFamily,
+            // fontFamily: karla.style.fontFamily,
             fontSize: '1em',
-            mt: '1em',
-            fontWeight: 'normal'
+            letterSpacing: '.04em',
+            mt: '1em'
             // letterSpacing: '.1rem'
           },
           date: {
@@ -57,18 +57,18 @@ export const Providers = ({ children }) => {
             // fontFamily: dbxlnightfever.style.fontFamily,
 
             fontSize: '0.85em',
-            fontWeight: 'normal'
+            fontWeight: '700'
             // opacity: '0.7'
           },
           lineup: {
             fontSize: '1em',
-            letterSpacing: '.07em'
-            // fontWeight: 'normal'
+            letterSpacing: '.04em',
+            fontWeight: '800'
           },
           eventname: {
             fontSize: '1em',
-            // fontWeight: 'normal',
-            letterSpacing: '.07em',
+            fontWeight: '800',
+            letterSpacing: '.04em',
             opacity: '1',
             color: '#6c39db'
           }
@@ -122,11 +122,13 @@ export const Providers = ({ children }) => {
         },
         div: {
           // fontFamily: quantico.style.fontFamily
-          fontFamily: hammersmithOne.style.fontFamily
+          fontFamily: karla.style.fontFamily,
+          fontWeight: '700'
         },
         p: {
           // fontFamily: quantico.style.fontFamily
-          fontFamily: hammersmithOne.style.fontFamily
+          fontFamily: karla.style.fontFamily,
+          fontWeight: '700'
         },
         a: {
           color: 'inherit',
