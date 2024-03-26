@@ -16,7 +16,7 @@ const ImpressumLayout = ({ impressum }) => {
 
       <TextBlock bgcolor="yellow" color="blue" title="Impressum">
         <Divider borderColor="blue" />
-        <Box fontFamily="Times New Roman">{formatRichText(impressum?.impressum?.json)}</Box>
+        <Box>{formatRichText(impressum?.impressum?.json)}</Box>
       </TextBlock>
     </Box>
   );
