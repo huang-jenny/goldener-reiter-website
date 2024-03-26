@@ -9,7 +9,7 @@ import {
   getNextEvent
 } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
-import PageTemplate from '@/components/PageLayout';
+import MainPage from '@/components/MainPage';
 import setLedText from '@/lib/lottie/setLedText';
 import ledsJson from 'public/leds.json';
 import doorJson from 'public/door.json';
@@ -107,7 +107,7 @@ export default async function Home() {
 
   return (
     <main>
-      <PageTemplate events={events} goreiInfo={goreiInfo} doorData={doorData} />
+      <MainPage events={events} goreiInfo={goreiInfo} doorData={doorData} />
     </main>
   );
 }
