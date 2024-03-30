@@ -44,7 +44,7 @@ const Program = ({ events }) => {
             </Box>
           </Box>
         ))}
-        {events.length < 4 ? <Box>more to be announced soon</Box> : null}
+        {events.length < 4 ? <Box mt={2}>more to be announced soon</Box> : null}
       </VStack>
     </>
   );
