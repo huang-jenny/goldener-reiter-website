@@ -99,9 +99,9 @@ const Door = ({ doorData }) => {
             top: 0,
             left: 0,
             width: '100%',
-            height: '100%',
-            minHeight: '100%',
-            minWidth: '100%'
+            height: '100%'
+            // minHeight: '100%',
+            // minWidth: '100%'
           }}
           autoplay={false}
           lottieRef={doorRef}
