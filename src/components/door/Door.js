@@ -92,7 +92,7 @@ const Door = ({ doorData }) => {
           }}></DotLottiePlayer>
 
         <Lottie
-          animationData={doorData.lottieFiles.door} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          animationData={doorData.lottieFiles.door}
           loop={false}
           style={{
             position: 'absolute',
@@ -116,7 +116,7 @@ const Door = ({ doorData }) => {
           }}
         />
         <Lottie
-          animationData={doorData.lottieFiles.leds}
+          animationData={doorData.lottieFiles.leds} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
           loop={true}
           style={{
             width: '100%',
