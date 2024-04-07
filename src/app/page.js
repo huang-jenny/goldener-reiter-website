@@ -12,6 +12,9 @@ import { getGoreiInfo } from '@/lib/contentful/about';
 import MainPage from '@/components/MainPage';
 import setLedText from '@/lib/lottie/setLedText';
 import ledsJson from 'public/leds.json';
+import led1Json from 'public/led1.json';
+import led2Json from 'public/led2.json';
+import led3Json from 'public/led3.json';
 import doorJson from 'public/door.json';
 import doorWithPosterJson from 'public/doorWithPoster.json';
 import { getWeekDay } from '@/lib/formatDate';
@@ -42,26 +45,30 @@ export default async function Home() {
   if (isOpenToday) {
     const todaysEvent = nextEvent[0];
 
-    setLedText(ledsJson, 'TONIGHT TONIGHT TONIGHT', 0);
+    setLedText(led1Json, 'TONIGHT TONIGHT TONIGHT');
 
     // if event has both eventname and lineup
     if (todaysEvent.eventname && todaysEvent.lineupCollection.items.length > 0) {
-      setLedText(ledsJson, formatLedText_Event(todaysEvent), 1);
-      setLedText(ledsJson, 'with ' + formatLedText_Lineup(todaysEvent).toUpperCase(), 2);
+      setLedText(led2Json, formatLedText_Event(todaysEvent));
+      setLedText(led3Json, 'with ' + formatLedText_Lineup(todaysEvent).toUpperCase());
     } else if (todaysEvent.eventname) {
       // if event has only eventname
-      setLedText(ledsJson, '* * * * * * * * * * * *', 1);
-      setLedText(ledsJson, formatLedText_Event(todaysEvent).toUpperCase(), 2);
+      setLedText(led2Json, '* * * * * * * * * * * *');
+      setLedText(led3Json, formatLedText_Event(todaysEvent).toUpperCase());
     } else if (todaysEvent.lineupCollection.items.length > 0) {
       // if event has only lineup
-      setLedText(ledsJson, '* * * * * * * * * * * *', 1);
-      setLedText(ledsJson, formatLedText_Lineup(todaysEvent).toUpperCase(), 2);
+      setLedText(led2Json, '* * * * * * * * * * * *');
+      setLedText(led3Json, formatLedText_Lineup(todaysEvent).toUpperCase());
     }
   } else {
-    nextThreeEvents.forEach((event, index) => {
-      const ledText = formatLedText_Weekday_Event_Lineup(event).toUpperCase();
-      setLedText(ledsJson, ledText, index);
-    });
+    let ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[0]).toUpperCase();
+    setLedText(led1Json, ledText);
+
+    ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[1]).toUpperCase();
+    setLedText(led2Json, ledText);
+
+    ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[2]).toUpperCase();
+    setLedText(led3Json, ledText);
   }
 
   // ___________POSTER_______________
@@ -72,7 +79,7 @@ export default async function Home() {
   // setDoorEasterEgg(doorWithPosterJson, '../test.mp4');
 
   const lottieFiles = {
-    leds: ledsJson,
+    leds: [led1Json, led2Json, led3Json],
     door: posterUrl ? doorWithPosterJson : doorJson,
     // doorWithPoster: doorWithPosterJson,
     horses: isOpenToday

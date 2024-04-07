@@ -115,8 +115,35 @@ const Door = ({ doorData }) => {
             }
           }}
         />
+
         <Lottie
-          animationData={doorData.lottieFiles.leds} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          animationData={doorData.lottieFiles.leds[2]} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          loop={true}
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            fontFamily: pressStart2P.style.fontFamily
+          }}
+          autoplay={true}
+        />
+        <Lottie
+          animationData={doorData.lottieFiles.leds[1]} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
+          loop={true}
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            fontFamily: pressStart2P.style.fontFamily
+          }}
+          autoplay={true}
+        />
+        <Lottie
+          animationData={doorData.lottieFiles.leds[0]} // ACHTUNG: HIER IST AUCH #CLICKAREA DRIN
           loop={true}
           style={{
             width: '100%',
