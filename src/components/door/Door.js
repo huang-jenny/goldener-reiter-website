@@ -57,7 +57,6 @@ const Door = ({ doorData }) => {
     <>
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       {/* todo Suspense??? */}
-
       <Box h="100%" w="100%" pos="relative">
         <Image
           src="/doorBg.svg"

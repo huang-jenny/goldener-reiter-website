@@ -12,5 +12,6 @@ export const getPosterUrl = async () => {
     }
   `);
   const { data } = res;
-  return data?.posterCollection?.items[0].poster?.url;
+  // return data?.posterCollection?.items[0].poster?.url;
+  return '/newyears.PNG';
 };
