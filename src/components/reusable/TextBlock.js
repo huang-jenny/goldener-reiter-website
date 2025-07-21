@@ -1,4 +1,6 @@
-import { Heading, Box, useTheme } from '@chakra-ui/react';
+'use client';
+
+import { Heading, Box } from '@chakra-ui/react';
 const TextBlock = ({
   children,
   bgcolor,
@@ -6,7 +8,6 @@ const TextBlock = ({
   title,
   width,
   textAlign,
-  textShadow,
   flex,
   flexGrow,
   flexBasis,
@@ -14,8 +15,6 @@ const TextBlock = ({
   hasPadding = true
 }) => {
   return (
-    // <Box flex={width ? 'none' : 'auto'} width={width}>
-    // <Box>
 
     <Box
       flex={flex}
@@ -24,9 +23,7 @@ const TextBlock = ({
       flexBasis={flexBasis}
       flexShrink={flexShrink}
       bgColor={bgcolor}
-      // id="test"
       h="100%"
-      // w="100%"
       overflowY="auto"
       textAlign={textAlign}
       wordBreak="break-word"
@@ -37,18 +34,13 @@ const TextBlock = ({
       {title && (
         <Heading
           variant="title"
-          // mb={[4, 6, 8]}
-          // color="yellow"
-          // textShadow={textShadow}
           color={color}
-          // textShadow={`2px -2px 0px yellow`}
         >
           {title}
         </Heading>
       )}
       {children}
     </Box>
-    // </Box>
   );
 };
 

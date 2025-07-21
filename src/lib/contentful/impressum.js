@@ -13,6 +13,5 @@ export const getImpressum = async () => {
     }
   `);
   const { data } = res;
-  // console.log(data?.impressumCollection?.items[0]);
   return data?.impressumCollection?.items[0];
 };

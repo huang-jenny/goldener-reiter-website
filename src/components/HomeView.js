@@ -3,11 +3,7 @@
 import {
   Box,
   Flex,
-  Heading,
-  SimpleGrid,
   Spacer,
-  useTheme,
-  // Link,
   useBreakpointValue,
   VStack
 } from '@chakra-ui/react';
@@ -17,12 +13,11 @@ import About from './about/About';
 import { Link } from '@chakra-ui/next-js';
 import TextBlock from './reusable/TextBlock';
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
 
-const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
+const HomeView = ({ events, goreiInfo, doorData, textShadow }) => {
   const [pageContent, setPageContent] = useState(null);
   const isMobile = useBreakpointValue({ base: true, lg: false }); //todo: testen auf versch geräten
-  const theme = useTheme();
+
   useEffect(() => {
     setPageContent(
       isMobile ? (
@@ -47,7 +42,6 @@ const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
         <Flex h="100vh" dir="row" gap={4} p={4} pb="32px">
           <TextBlock
             bgcolor="pink"
-            // textShadow={`-2px 4px 0px ${theme.colors.blue}`}
             color="blue"
             title="Coming Up"
             textAlign="left"
@@ -56,11 +50,9 @@ const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
           </TextBlock>
           <TextBlock bgcolor="yellow" flex="none" hasPadding={false}>
             <Door doorData={doorData} />
-            {/* todo: MaxWidth setzen damit auch bei quadratischeren bildschirmen gut aussieht*/}
           </TextBlock>
           <TextBlock
             bgcolor="blue"
-            // textShadow={`-2px 4px 0px ${theme.colors.pink}`}
             color="pink"
             title={
               <>
@@ -74,9 +66,8 @@ const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
         </Flex>
       )
 
-      // { ssr: false }
     );
-  }, [isMobile]);
+  }, [isMobile, events, goreiInfo, doorData]);
 
   return (
     <>
@@ -91,11 +82,6 @@ const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
         color="yellowTransparent"
         w="100%"
         alignItems="center">
-        {/* <Spacer /> */}
-        {/*  */}
-        {/* <Link>
-          <Box fontSize="16px">Impressum</Box>
-        </Link> */}
 
         <Spacer />
         <Box fontSize="10px" fontFamily="roboto" fontWeight="300" letterSpacing=".03rem">
@@ -111,32 +97,14 @@ const MainPage = ({ events, goreiInfo, doorData, textShadow }) => {
           fontFamily="roboto"
           fontWeight="300"
           letterSpacing=".03rem"
-          // color="yellow"
         >
           <Link href="/impressum" variant="footer">
             Impressum
           </Link>
         </Box>
       </Flex>
-      {/* <Flex
-        px={4}
-        h="28px"
-        position="absolute"
-        bottom={0}
-        w="100%"
-        alignItems="center"
-        color="blue">
-        <Spacer />
-  
-        <Link>
-          <Box fontSize="12px">Impressum</Box>
-        </Link>
-
-        <Spacer />
-
-      </Flex> */}
     </>
   );
 };
 
-export default MainPage;
+export default HomeView;

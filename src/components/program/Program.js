@@ -1,4 +1,3 @@
-import { dbxlnightfever } from '@/app/fonts';
 import formatDate from '@/lib/formatDate';
 import { Box, Divider, Text, Heading, VStack, Link } from '@chakra-ui/react';
 
@@ -31,7 +30,6 @@ const Program = ({ events }) => {
                 <Box key={v4()} my={2}>
                   <Heading variant="lineup">
                     <Link
-                      // textDecoration={lineup.link ? 'underline' : 'none'}
                       href={lineup.link}
                       textTransform="uppercase"
                       isExternal

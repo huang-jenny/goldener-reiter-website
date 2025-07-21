@@ -1,18 +1,15 @@
-import { Box, Image, useBreakpointValue } from '@chakra-ui/react';
-import Button3D from '../reusable/Button3D';
-import { Suspense, useEffect, useState, useRef } from 'react';
-import { matrix_complex, pressStart2P } from '@/app/fonts';
+import { Box, Image } from '@chakra-ui/react';
+import { useEffect, useState, useRef } from 'react';
+import { pressStart2P } from '@/app/fonts';
 import Lottie from 'lottie-react';
-import { DotLottiePlayer, Controls, PlayerEvents } from '@dotlottie/react-player';
+import { DotLottiePlayer } from '@dotlottie/react-player';
 import '@dotlottie/react-player/dist/index.css';
 import { shuffleArray } from '@/lib/shuffleArray';
 
 const Door = ({ doorData }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [horseAnimationRunning, setHorseAnimationRunning] = useState(false);
   const doorRef = useRef(null);
   const horseRef = useRef(null);
-  const [direction, setDirection] = useState(1);
   const [horseAnimationQueue, setHorseAnimationQueue] = useState(
     shuffleArray([...doorData.lottieFiles.horses])
   );
@@ -44,19 +41,15 @@ const Door = ({ doorData }) => {
       horseRef.current?.play();
     } else {
       doorRef.current?.playSegments([13, 0], true);
-
-      // horseRef.current?.stop();
     }
   }, [isOpen]);
 
   useEffect(() => {
-    doorRef.current.stop(); // TODO: eleganter lösen? z.B. set (opening) (closing) (closed)
+    doorRef.current.stop();
   }, []);
 
   return (
     <>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
-      {/* todo Suspense??? */}
 
       <Box h="100%" w="100%" pos="relative">
         <Image
@@ -71,15 +64,6 @@ const Door = ({ doorData }) => {
           src={horseAnimationQueue[0]}
           autoplay={false}
           ref={horseRef}
-          // onEvent={
-          //   doorData.isOpenToday // close door automatically if today is not open
-          //     ? null
-          //     : (event) => {
-          //         if (event === PlayerEvents.LoopComplete) {
-          //           setIsOpen(false);
-          //         }
-          //       }
-          // }
           loop
           style={{
             width: '100%',
@@ -100,8 +84,6 @@ const Door = ({ doorData }) => {
             left: 0,
             width: '100%',
             height: '100%'
-            // minHeight: '100%',
-            // minWidth: '100%'
           }}
           autoplay={false}
           lottieRef={doorRef}
@@ -156,7 +138,6 @@ const Door = ({ doorData }) => {
           autoplay={true}
         />
       </Box>
-      {/* </Suspense> */}
     </>
   );
 };

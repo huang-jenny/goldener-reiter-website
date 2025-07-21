@@ -1,13 +1,11 @@
 'use client';
 
 import TextBlock from '@/components/reusable/TextBlock';
-import { Box, Divider, Heading } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
 import { formatRichText } from '@/lib/formatRichText';
-import { getImpressum } from '@/lib/contentful/impressum';
-import { useEffect, useState } from 'react';
 
-const ImpressumLayout = ({ impressum }) => {
+const ImpressumView = ({ impressum }) => {
   return (
     <Box p={4} fontFamily="roboto">
       <Box my={2} color="yellow">
@@ -22,4 +20,4 @@ const ImpressumLayout = ({ impressum }) => {
   );
 };
 
-export default ImpressumLayout;
+export default ImpressumView;

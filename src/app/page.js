@@ -1,35 +1,26 @@
-import Image from 'next/image';
-import styles from './page.module.css';
-import Program from '@/components/program/Program';
 import {
   getUpcomingEvents,
   getNextThreeEvents,
-  getMinDateTime,
   isTodayOpen,
   getNextEvent
 } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
-import MainPage from '@/components/MainPage';
+import HomeView from '@/components/HomeView';
 import setLedText from '@/lib/lottie/setLedText';
-import ledsJson from 'public/leds.json';
-import led1Json from 'public/led1.json';
-import led2Json from 'public/led2.json';
-import led3Json from 'public/led3.json';
-import doorJson from 'public/door.json';
-import doorWithPosterJson from 'public/doorWithPoster.json';
-import { getWeekDay } from '@/lib/formatDate';
+import led1Json from '@/data/led1.json';
+import led2Json from '@/data/led2.json';
+import led3Json from '@/data/led3.json';
+import doorJson from '@/data/door.json';
+import doorWithPosterJson from '@/data/doorWithPoster.json';
 import { getPosterUrl } from '@/lib/contentful/door';
 import { setDoorPoster } from '@/lib/lottie/setDoorPoster';
-import { setDoorEasterEgg } from '@/lib/lottie/setDoorEasterEgg';
 import {
   formatLedText_Weekday_Event_Lineup,
   formatLedText_Event,
   formatLedText_Lineup,
-  formatLedText_Event_Lineup
 } from '@/lib/formatLedText';
-import { getImpressum } from '@/lib/contentful/impressum';
 
-export default async function Home() {
+export default async function HomePage() {
   const [events, goreiInfo, nextThreeEvents, nextEvent, posterUrl, isOpenToday] = await Promise.all(
     [
       getUpcomingEvents(),
@@ -76,12 +67,9 @@ export default async function Home() {
     setDoorPoster(doorWithPosterJson, posterUrl);
   }
 
-  // setDoorEasterEgg(doorWithPosterJson, '../test.mp4');
-
   const lottieFiles = {
     leds: [led1Json, led2Json, led3Json],
     door: posterUrl ? doorWithPosterJson : doorJson,
-    // doorWithPoster: doorWithPosterJson,
     horses: isOpenToday
       ? [
           '/animationpferd_dance.lottie',
@@ -93,19 +81,6 @@ export default async function Home() {
           '/animationpferd_dusche.lottie',
           '/animationpferd_lesen.lottie'
         ]
-    // {
-
-    // eventDay: [
-    //   '/animationpferd_dance.lottie',
-    //   '/animationpferd_dj.lottie',
-    //   '/animationpferd_drink.lottie'
-    // ],
-    // nonEventDay: [
-    //   '/animationpferd_giessen.lottie',
-    //   '/animationpferd_dusche.lottie',
-    //   '/animationpferd_lesen.lottie'
-    // ]
-    // }
   };
   const doorData = {
     lottieFiles: lottieFiles,
@@ -114,7 +89,7 @@ export default async function Home() {
 
   return (
     <main>
-      <MainPage events={events} goreiInfo={goreiInfo} doorData={doorData} />
+      <HomeView events={events} goreiInfo={goreiInfo} doorData={doorData} />
     </main>
   );
 }

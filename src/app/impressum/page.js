@@ -1,7 +1,7 @@
-import ImpressumLayout from '@/components/ImpressumLayout';
+import ImpressumView from '@/components/impressum/ImpressumView';
 import { getImpressum } from '@/lib/contentful/impressum';
 
-export default async function Impressum() {
+export default async function ImpressumPage() {
   const impressum = await getImpressum();
-  return <ImpressumLayout impressum={impressum} />;
+  return <ImpressumView impressum={impressum} />;
 }

@@ -6,13 +6,7 @@ import { dbxlnightfever, karla, pressStart2P, roboto } from './fonts';
 export const Providers = ({ children }) => {
   const theme = extendTheme({
     fonts: {
-      // pressStart2P: pressStart2P.style.fontFamily,
-      // quantico: quantico.style.fontFamily,
       roboto: roboto.style.fontFamily //for the footer
-      // matrix_complex: matrix_complex.style.fontFamily,
-      // dbxlnightfever: dbxlnightfever.style.fontFamily
-      // dynamicbrk: dynamicbrk.style.fontFamily,
-      // goldman: goldman.style.fontFamily
     },
     components: {
       Heading: {
@@ -22,29 +16,17 @@ export const Providers = ({ children }) => {
         },
         variants: {
           title: {
-            // fontFamily: pressStart2P.style.fontFamily,
-            // fontSize: ['1.3em', '1.4em', '1.5em', '1.6em', '1.7em'] //['30px', '34px', '38px', '42px']
-            // fontFamily: dynamicbrk.style.fontFamily,
             fontFamily: dbxlnightfever.style.fontFamily,
-            // fontFamily: goldman.style.fontFamily,
             fontSize: ['1.9em', '2em', '2.1em', '2.2em'],
             fontWeight: 'normal'
-            // color: 'yellow'
           },
           subtitle: {
-            // fontFamily: quantico.style.fontFamily,
-            // fontFamily: karla.style.fontFamily,
             fontSize: '1em',
             letterSpacing: '.04em',
             mt: '1em'
             // letterSpacing: '.1rem'
           },
           date: {
-            // fontFamily: pressStart2P.style.fontFamily,
-            // fontFamily: matrix_complex.style.fontFamily,
-            // fontFamily: quantico.style.fontFamily,
-            // fontFamily: dbxlnightfever.style.fontFamily,
-
             fontSize: '0.85em',
             fontWeight: '700'
           },

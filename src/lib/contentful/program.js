@@ -47,7 +47,6 @@ export const getNextThreeEvents = async () => {
   `);
 
   const { data } = res;
-  // console.log(data?.eventCollection?.items[0].date);
   return data?.eventCollection?.items;
 };
 
@@ -80,7 +79,6 @@ export const getNextEvent = async () => {
 export const isTodayOpen = async () => {
   const nextEvent = await getNextEvent();
   const nextEventDate = new Date(nextEvent[0]?.date);
-  // console.log('nextEventDate', nextEventDate.toISOString(), minDate.toISOString());
   return nextEventDate - minDate < 1000 * 60 * 60 * 24; // if difference is less than 24 hours
 };
 

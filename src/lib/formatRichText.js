@@ -24,9 +24,9 @@ export const formatRichText = (text) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <Text py={2} fontWeight={800}>
+        <Box py={2} fontWeight={800} as="span">
           {text}
-        </Text>
+        </Box>
       )
     }
   };
