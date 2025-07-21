@@ -5,7 +5,7 @@ import {
   getNextEvent
 } from '@/lib/contentful/program';
 import { getGoreiInfo } from '@/lib/contentful/about';
-import HomeView from '@/components/HomeView';
+import HomeView from '@/components/home/HomeView';
 import setLedText from '@/lib/lottie/setLedText';
 import led1Json from '@/data/led1.json';
 import led2Json from '@/data/led2.json';
@@ -17,7 +17,7 @@ import { setDoorPoster } from '@/lib/lottie/setDoorPoster';
 import {
   formatLedText_Weekday_Event_Lineup,
   formatLedText_Event,
-  formatLedText_Lineup,
+  formatLedText_Lineup
 } from '@/lib/formatLedText';
 
 export default async function HomePage() {

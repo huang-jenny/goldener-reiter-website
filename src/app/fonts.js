@@ -1,8 +1,4 @@
-import {
-  Press_Start_2P,
-  Roboto,
-  Karla
-} from 'next/font/google';
+import { Press_Start_2P, Roboto, Karla } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const karla = Karla({
@@ -13,7 +9,6 @@ export const karla = Karla({
   variable: '--font-karla',
   weight: ['200', '300', '400', '500', '600', '700', '800']
 });
-
 
 export const pressStart2P = Press_Start_2P({
   preload: true,

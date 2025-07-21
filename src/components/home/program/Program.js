@@ -6,6 +6,9 @@ import { v4 } from 'uuid';
 const Program = ({ events }) => {
   return (
     <>
+      <Heading variant="title" color="blue" mb={4}>
+        Coming Up
+      </Heading>
       <Divider borderColor="blue" />
       <VStack w="100%" align="left" spacing={[5, 5, 6, 7, 8]}>
         {events?.map((event) => (
@@ -33,7 +36,8 @@ const Program = ({ events }) => {
                       href={lineup.link}
                       textTransform="uppercase"
                       isExternal
-                      pointerEvents={lineup.link ? '' : 'none'}>
+                      pointerEvents={lineup.link ? '' : 'none'}
+                    >
                       {lineup.artistName}{' '}
                     </Link>
                   </Heading>

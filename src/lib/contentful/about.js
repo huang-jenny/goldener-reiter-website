@@ -23,7 +23,7 @@ export const getGoreiInfo = async () => {
         }
       }
     }
-  `); 
+  `);
 
   const { data } = res;
   return data?.goreiInformationCollection?.items[0];

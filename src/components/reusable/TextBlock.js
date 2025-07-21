@@ -7,6 +7,7 @@ const TextBlock = ({
   color,
   title,
   width,
+  className,
   textAlign,
   flex,
   flexGrow,
@@ -15,13 +16,13 @@ const TextBlock = ({
   hasPadding = true
 }) => {
   return (
-
     <Box
       flex={flex}
       width={width}
       flexGrow={flexGrow}
       flexBasis={flexBasis}
       flexShrink={flexShrink}
+      className={className}
       bgColor={bgcolor}
       h="100%"
       overflowY="auto"
@@ -30,15 +31,8 @@ const TextBlock = ({
       pb={hasPadding ? ['4%', '4%', '3%'] : 0}
       pt={['4%', '4%', '3%', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
       px={hasPadding ? ['5%', '4%', '3%'] : 0}
-      color={color}>
-      {title && (
-        <Heading
-          variant="title"
-          color={color}
-        >
-          {title}
-        </Heading>
-      )}
+      color={color}
+    >
       {children}
     </Box>
   );
