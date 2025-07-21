@@ -50,7 +50,6 @@ const Door = ({ doorData }) => {
 
   return (
     <>
-
       <Box h="100%" w="100%" pos="relative">
         <Image
           src="/doorBg.svg"
@@ -58,7 +57,8 @@ const Door = ({ doorData }) => {
           width="100%"
           height="100%"
           pos="relative"
-          zIndex={0}></Image>
+          zIndex={0}
+        ></Image>
         <DotLottiePlayer
           key={horseAnimationQueue[0]} // TO FORCE RERENDER!!!
           src={horseAnimationQueue[0]}
@@ -73,7 +73,8 @@ const Door = ({ doorData }) => {
             top: 0,
             left: 0,
             fontFamily: pressStart2P.style.fontFamily
-          }}></DotLottiePlayer>
+          }}
+        ></DotLottiePlayer>
 
         <Lottie
           animationData={doorData.lottieFiles.door}

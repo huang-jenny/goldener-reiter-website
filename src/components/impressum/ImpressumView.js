@@ -1,22 +1,44 @@
 'use client';
 
 import TextBlock from '@/components/reusable/TextBlock';
-import { Box, Divider } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
 import { formatRichText } from '@/lib/formatRichText';
+import useIsMobile from '@/hooks/useIsMobile';
 
 const ImpressumView = ({ impressum }) => {
-  return (
-    <Box p={4} fontFamily="roboto">
-      <Box my={2} color="yellow">
-        <Link href="/">← Home</Link>
-      </Box>
+  const isMobile = useIsMobile();
 
-      <TextBlock bgcolor="yellow" color="blue" title="Impressum">
-        <Divider borderColor="blue" />
-        <Box>{formatRichText(impressum?.impressum?.json)}</Box>
-      </TextBlock>
-    </Box>
+  return (
+    <>
+      {!isMobile ? (
+        <Box h="100vh" m={0} p={4} pb="32px" fontFamily="roboto">
+          <TextBlock bgcolor="blue" color="blue" title="Impressum" className="scrollbar-pink">
+            <Box color="pink">
+              <Link href="/">← Home</Link>
+            </Box>
+            <Heading variant="title" color="yellow" mt={4}>
+              Impressum
+            </Heading>
+            <Divider borderColor="yellow" />
+            <Box color="yellow">{formatRichText(impressum?.impressum?.json)}</Box>
+          </TextBlock>
+        </Box>
+      ) : (
+        <Box pb="50px" gap="0">
+          <TextBlock bgcolor="blue" color="blue" title="Impressum" className="scrollbar-pink">
+            <Box color="pink">
+              <Link href="/">← Home</Link>
+            </Box>
+            <Heading variant="title" color="yellow" mt={4}>
+              Impressum
+            </Heading>
+            <Divider borderColor="yellow" />
+            <Box color="yellow">{formatRichText(impressum?.impressum?.json)}</Box>
+          </TextBlock>
+        </Box>
+      )}
+    </>
   );
 };
 

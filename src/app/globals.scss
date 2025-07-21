@@ -31,6 +31,11 @@ a:hover {
     scrollbar-width: auto;
     scrollbar-color: yellow transparent;
   }
+
+  .scrollbar-pink {
+    scrollbar-width: auto;
+    scrollbar-color: #f14dff transparent !important;
+  }
 }
 
 /* Chrome, Edge, and Safari */
@@ -45,5 +50,10 @@ a:hover {
 *::-webkit-scrollbar-thumb {
   /* background-color: #e00404; */
   background-color: yellow;
+  border-radius: 20px;
+}
+
+.scrollbar-pink::-webkit-scrollbar-thumb {
+  background-color: #f14dff !important;
   border-radius: 20px;
 }

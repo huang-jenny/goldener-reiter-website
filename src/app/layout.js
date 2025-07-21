@@ -3,6 +3,7 @@ import './globals.scss';
 import { Providers } from './providers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+import Footer from '@/components/reusable/Footer';
 
 export const metadata = {
   title: 'Goldener Reiter',
@@ -13,7 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Footer />
+        </Providers>
         <SpeedInsights />
         <Analytics />
       </body>
