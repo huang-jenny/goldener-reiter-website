@@ -47,7 +47,6 @@ export const Providers = ({ children }) => {
 
             fontSize: '0.85em',
             fontWeight: '700'
-            // opacity: '0.7'
           },
           lineup: {
             fontSize: '1em',
@@ -101,21 +100,17 @@ export const Providers = ({ children }) => {
     styles: {
       global: {
         body: {
-          // bg: '#E00404',
           bg: '#121117',
-          // bg: "black",
 
           color: 'white',
           fontFamily: pressStart2P.style.fontFamily, // Needed so it preloadds font before led animation
           fontSize: ['calc(13px + 1.2vmin)']
         },
         div: {
-          // fontFamily: quantico.style.fontFamily
           fontFamily: karla.style.fontFamily,
           fontWeight: '600'
         },
         p: {
-          // fontFamily: quantico.style.fontFamily
           fontFamily: karla.style.fontFamily,
           fontWeight: '600'
         },
