@@ -52,14 +52,25 @@ export default async function HomePage() {
       setLedText(led3Json, formatLedText_Lineup(todaysEvent).toUpperCase());
     }
   } else {
-    let ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[0]).toUpperCase();
-    setLedText(led1Json, ledText);
+    if (nextThreeEvents[0]) {
+      setLedText(led1Json, formatLedText_Weekday_Event_Lineup(nextThreeEvents[0]).toUpperCase());
+    } else {
+      setLedText(led1Json, '* * * * * * * * * * * * *');
+    }
 
-    ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[1]).toUpperCase();
-    setLedText(led2Json, ledText);
+    if (nextThreeEvents[1]) {
+      setLedText(led2Json, formatLedText_Weekday_Event_Lineup(nextThreeEvents[1]).toUpperCase());
+    }
+    else {
+      setLedText(led2Json, "☺ ☺ ☺ ☺ YOU'LL NEVER RIDE ALONE");
+    }
 
-    ledText = formatLedText_Weekday_Event_Lineup(nextThreeEvents[2]).toUpperCase();
-    setLedText(led3Json, ledText);
+    if (nextThreeEvents[2]) {
+      setLedText(led3Json, formatLedText_Weekday_Event_Lineup(nextThreeEvents[2]).toUpperCase());
+    }
+    else {
+      setLedText(led3Json, '* * * * * * * * * * * * *');
+    }
   }
 
   // ___________POSTER_______________
