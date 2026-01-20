@@ -1,5 +1,8 @@
-import { Box, Heading, Link, Divider, HStack } from '@chakra-ui/react';
+import { Box, Heading, Link, Divider, HStack, Flex } from '@chakra-ui/react';
 import { formatRichText } from '@/lib/formatRichText';
+import BKMLogo from '@/data/BKM_de_v2__DTP_weiss.png';
+import InitiativeMusikLogo from '@/data/IMU_Logo_RGB_weiss_Schutzraum.png';
+import Image from 'next/image';
 
 const About = ({ goreiInfo }) => {
   return (
@@ -72,7 +75,25 @@ const About = ({ goreiInfo }) => {
       <Divider borderColor="pink" />
       <Box textAlign="justify">{formatRichText(goreiInfo.infotext.json)}</Box>
       <Divider borderColor="pink" />
-      <Box textAlign="justify">{formatRichText(goreiInfo.infotext2.json)}</Box>
+      <Box textAlign="justify">
+        <Box mb={3}>Gefördert durch</Box>
+        <Flex gap={4}>
+          <Box width="50%">
+            <Image
+              src={BKMLogo}
+              alt="BKM Logo"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
+          <Box width="50%">
+            <Image
+              src={InitiativeMusikLogo}
+              alt="Initiative Musik Logo"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
+        </Flex>
+      </Box>
     </>
   );
 };

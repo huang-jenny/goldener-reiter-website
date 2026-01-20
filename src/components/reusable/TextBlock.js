@@ -30,7 +30,7 @@ const TextBlock = ({
       wordBreak="break-word"
       pb={hasPadding ? ['4%', '4%', '3%'] : 0}
       pt={['4%', '4%', '3%', hasPadding ? ['2%'] : 0]} // TODO: zu dirty
-      px={hasPadding ? ['5%', '4%', '3%'] : 0}
+      px={hasPadding ? ['5%', '4%', '2%'] : 0}
       color={color}
     >
       {children}
