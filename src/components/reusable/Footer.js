@@ -16,7 +16,7 @@ const Footer = () => {
       <Spacer />
       <Box fontSize="10px" fontFamily="roboto" fontWeight="300" letterSpacing=".03rem">
         website designed & built by{' '}
-        <Link href="https://www.jennyhuang.de/" variant="footer" isExternal>
+        <Link href="https://www.instagram.com/jeyrototo/" variant="footer" isExternal>
           Jenny Huang
         </Link>
       </Box>
